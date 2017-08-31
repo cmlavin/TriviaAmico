@@ -1,9 +1,10 @@
 import React from 'react';
 import StartGame from './StartGame'
 
-const Homepage = () => {
+const Homepage = (props) => {
+  //debugger
   return(
-    <StartGame />
+    <StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection}/>
   )
 }
 

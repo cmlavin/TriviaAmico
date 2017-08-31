@@ -8,12 +8,16 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
+      number: '',
+      category: '',
+      difficulty: '',
+      type: '',
       questions: ''
     }
   }
 
   componentDidMount() {
-    this.fetchAPIData()
+    this.fetchAPIData(this.state.number, this.state.category, this.state.difficulty, this.state.type)
   }
 
   fetchAPIData = (number, category, difficulty, type) => {
@@ -24,12 +28,24 @@ class App extends React.Component {
     }), () => console.log(this.state.questions))
   }
 
+  handleSelection = (event) => {
+    this.setState({
+      number: event.target.dataset.numquestions,
+      category: event.target.dataset.category,
+      difficulty: event.target.dataset.difficulty,
+      type: event.target.dataset.questiontype
+    }, () => console.log(this.state))
+  }
+  handleSubmit = (event) => {
+    //debugger
+  }
+
   render() {
     return (
       <div className="App">
         <Router>
           <div>
-            <Route exact path='/' render={ () => <Homepage /> }/>
+            <Route exact path='/' render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}/> }/>
             <Route exact path='/game' render={ () => <Game /> }/>
           </div>
         </Router>
