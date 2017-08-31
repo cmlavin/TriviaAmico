@@ -1,10 +1,9 @@
 import React from 'react';
-import { Form, Select, Dropdown, Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Form, Select, Button } from 'semantic-ui-react'
 import categories from '../options/categories'
 import difficulties from '../options/difficulties'
 import numQuestions from '../options/numQuestions'
-import questionType from '../options/questionType'
+import questionTypes from '../options/questionTypes'
 
   const StartGame = (props) => {
     // debugger
@@ -13,13 +12,13 @@ import questionType from '../options/questionType'
         <Form onSubmit={props.handleSubmit}>
           <Form.Field inline>
             <label><h3>Category</h3></label>
-            <Select id="selectedCategory" options={categories} onChange={props.handleSelection}/><br/>
+            <Select id="selectedCategory" name="category" options={categories} onChange={props.handleSelection}/><br/>
             <label><h3>Difficulty</h3></label>
-            <Select id="selectedDifficulty" options={difficulties} onChange={props.handleSelection}/><br/>
+            <Select id="selectedDifficulty" name="difficulty" options={difficulties} onChange={props.handleSelection}/><br/>
             <label><h3>Number of questions</h3></label>
-            <Select id="selectedNumber" options={numQuestions} onChange={props.handleSelection}/><br/>
+            <Select id="selectedNumber" name="number" options={numQuestions} onChange={props.handleSelection}/><br/>
             <label><h3>Type of questions</h3></label>
-            <Select id="selectedType" options={questionType} onChange={props.handleSelection}/><br/>
+            <Select id="selectedType" name="type" options={questionTypes} onChange={props.handleSelection}/><br/>
             <Button>Start Game</Button>
           </Form.Field>
         </Form>
@@ -29,6 +28,7 @@ import questionType from '../options/questionType'
 
 export default StartGame;
 
+//import { Link } from 'react-router-dom'
 //<Link to={'/game'}></Link>
 
 

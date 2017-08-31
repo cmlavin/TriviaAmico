@@ -15,34 +15,24 @@ class App extends React.Component {
       type: '',
       data: ''
     }
-    //this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  fetchAPIData = (number, category, difficulty, type) => {
-    fetch(`https://opentdb.com/api.php?amount=${number}&category=${category}&difficulty=${difficulty}&type=${type}`)
-    .then(resp => resp.json())
+  handleSelection = (event) => {
+    const property = event.target.dataset.name
+    const value = event.target.dataset.option
+    this.setState({
+      [property]: value
+    }, () => console.log(this.state))
+  }
+
+  handleSubmit = (event) => {
+    let {number, category, difficulty, type} = this.state
+    //debugger
+    OpenTriviaDB.fetchAPIData(number, category, difficulty, type)
     .then(data => this.setState({
       data: data
     }), () => console.log(this.state.data))
   }
-
-  handleSelection = (event) => {
-    this.setState({
-      number: event.target.dataset.numquestions,
-      category: event.target.dataset.category,
-      difficulty: event.target.dataset.difficulty,
-      type: event.target.dataset.questiontype
-    }, () => console.log(this.state))
-  }
-
-  handleSubmit = () => {
-    let {number, category, difficulty, type} = this.state
-    //debugger
-    // OpenTrivia.fetchAPIData(this.state.number, this.state.category, this.state.difficulty, this.state.type)
-    this.fetchAPIData(number, category, difficulty, type)
-
-  }
-  //on submit, want to redirect to game page and will need to fetch data from API so that data can be used to make the game
 
   render() {
     return (
@@ -60,7 +50,8 @@ class App extends React.Component {
 
 export default App;
 
-
-// componentDidMount() {
-//
-// }
+//number: event.target.dataset.numquestion,
+//category: event.target.dataset.category,
+//difficulty: event.target.dataset.difficulty,
+//type: event.target.dataset.questiontype
+//state is not updating/saving
