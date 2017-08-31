@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import OpenTriviaDB from './adapters/OpenTriviaDB'
 import Homepage from './components/Homepage'
 import Game from './components/Game'
 import './App.css';
@@ -12,16 +13,17 @@ class App extends React.Component {
       category: '',
       difficulty: '',
       type: '',
-      questions: ''
+      data: ''
     }
+    //this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   fetchAPIData = (number, category, difficulty, type) => {
     fetch(`https://opentdb.com/api.php?amount=${number}&category=${category}&difficulty=${difficulty}&type=${type}`)
     .then(resp => resp.json())
     .then(data => this.setState({
-      questions: data
-    }), () => console.log(this.state.questions))
+      data: data
+    }), () => console.log(this.state.data))
   }
 
   handleSelection = (event) => {
@@ -33,9 +35,12 @@ class App extends React.Component {
     }, () => console.log(this.state))
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = () => {
+    let {number, category, difficulty, type} = this.state
     //debugger
-    //this.fetchAPIData(this.state.number, this.state.category, this.state.difficulty, this.state.type)
+    // OpenTrivia.fetchAPIData(this.state.number, this.state.category, this.state.difficulty, this.state.type)
+    this.fetchAPIData(number, category, difficulty, type)
+
   }
   //on submit, want to redirect to game page and will need to fetch data from API so that data can be used to make the game
 

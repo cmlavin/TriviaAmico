@@ -1,12 +1,13 @@
 import React from 'react';
 import { Form, Select, Dropdown, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import categories from '../categories'
-import difficulties from '../difficulties'
-import numQuestions from '../numQuestions'
-import questionType from '../questionType'
+import categories from '../options/categories'
+import difficulties from '../options/difficulties'
+import numQuestions from '../options/numQuestions'
+import questionType from '../options/questionType'
 
   const StartGame = (props) => {
+    // debugger
     return(
       <div>
         <Form onSubmit={props.handleSubmit}>
@@ -19,7 +20,7 @@ import questionType from '../questionType'
             <Select id="selectedNumber" options={numQuestions} onChange={props.handleSelection}/><br/>
             <label><h3>Type of questions</h3></label>
             <Select id="selectedType" options={questionType} onChange={props.handleSelection}/><br/>
-            <Link to={'/game'}><Button>Start Game</Button></Link>
+            <Button>Start Game</Button>
           </Form.Field>
         </Form>
       </div>
@@ -27,6 +28,8 @@ import questionType from '../questionType'
 }
 
 export default StartGame;
+
+//<Link to={'/game'}></Link>
 
 
 
