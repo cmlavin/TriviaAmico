@@ -18,7 +18,6 @@ class App extends React.Component {
   }
 
   handleSelection = (event, data) => {
-    //debugger
     const property = event.target.dataset.name
     this.setState({
       [property]: data.value,
@@ -27,11 +26,10 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     let {number, category, difficulty, type} = this.state
-    //debugger
     OpenTriviaDB.fetchAPIData(number, category, difficulty, type)
     .then(data => this.setState({
       data
-    }, () => console.log(this.state)))
+    }, () => {debugger}))
   }
 
   render() {
@@ -49,28 +47,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-//number: event.target.dataset.numquestion,
-//category: event.target.dataset.category,
-//difficulty: event.target.dataset.difficulty,
-//type: event.target.dataset.questiontype
-//state is not updating/saving
-
-//
-// handleSelection = (event, data) => {
-//   debugger
-//   const property = event.target.dataset.name
-//   const value = event.target.dataset.option
-//   this.setState({
-//     [property]: value
-//   }, () => {console.log(this.state)})
-// }
-//
-// handleSubmit = (event) => {
-//   let {number, category, difficulty, type} = this.state
-//   debugger
-//   OpenTriviaDB.fetchAPIData(number, category, difficulty, type)
-//   .then(data => this.setState({
-//     data
-//   }, () => console.log(this.state)))
-// }
