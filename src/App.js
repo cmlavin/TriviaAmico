@@ -16,10 +16,6 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.fetchAPIData(this.state.number, this.state.category, this.state.difficulty, this.state.type)
-  }
-
   fetchAPIData = (number, category, difficulty, type) => {
     fetch(`https://opentdb.com/api.php?amount=${number}&category=${category}&difficulty=${difficulty}&type=${type}`)
     .then(resp => resp.json())
@@ -36,9 +32,12 @@ class App extends React.Component {
       type: event.target.dataset.questiontype
     }, () => console.log(this.state))
   }
+
   handleSubmit = (event) => {
     //debugger
+    //this.fetchAPIData(this.state.number, this.state.category, this.state.difficulty, this.state.type)
   }
+  //on submit, want to redirect to game page and will need to fetch data from API so that data can be used to make the game
 
   render() {
     return (
@@ -55,3 +54,8 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+// componentDidMount() {
+//
+// }
