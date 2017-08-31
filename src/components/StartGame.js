@@ -12,13 +12,13 @@ import questionTypes from '../options/questionTypes'
         <Form onSubmit={props.handleSubmit}>
           <Form.Field inline>
             <label><h3>Category</h3></label>
-            <Select id="selectedCategory" name="category" options={categories} onChange={props.handleSelection}/><br/>
+            <Select id="selectedCategory" options={categories} onChange={props.handleSelection}/><br/>
             <label><h3>Difficulty</h3></label>
-            <Select id="selectedDifficulty" name="difficulty" options={difficulties} onChange={props.handleSelection}/><br/>
+            <Select id="selectedDifficulty" options={difficulties} onChange={props.handleSelection}/><br/>
             <label><h3>Number of questions</h3></label>
-            <Select id="selectedNumber" name="number" options={numQuestions} onChange={props.handleSelection}/><br/>
+            <Select id="selectedNumber" options={numQuestions} onChange={props.handleSelection}/><br/>
             <label><h3>Type of questions</h3></label>
-            <Select id="selectedType" name="type" options={questionTypes} onChange={props.handleSelection}/><br/>
+            <Select id="selectedType" options={questionTypes} onChange={props.handleSelection}/><br/>
             <Button>Start Game</Button>
           </Form.Field>
         </Form>
