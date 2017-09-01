@@ -18,10 +18,11 @@ class App extends React.Component {
   }
 
   handleSelection = (event, data) => {
-    const property = event.target.dataset.name
+    debugger
+    const property = event.currentTarget.dataset.name
     this.setState({
       [property]: data.value,
-    }, () => {console.log(this.state)})
+    }, () => {debugger})
   }
 
   handleSubmit = (event) => {
