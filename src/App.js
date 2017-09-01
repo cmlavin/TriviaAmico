@@ -18,11 +18,10 @@ class App extends React.Component {
   }
 
   handleSelection = (event, data) => {
-    debugger
     const property = event.currentTarget.dataset.name
     this.setState({
       [property]: data.value,
-    }, () => {debugger})
+    }, () => console.log(this.state))
   }
 
   handleSubmit = (event) => {
@@ -32,8 +31,6 @@ class App extends React.Component {
       data
     }, () => console.log(this.state)))
   }
-
-  //after handleSubmit, should redirect to /game page
 
   render() {
     return (
