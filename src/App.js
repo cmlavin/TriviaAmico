@@ -29,8 +29,10 @@ class App extends React.Component {
     OpenTriviaDB.fetchAPIData(number, category, difficulty, type)
     .then(data => this.setState({
       data
-    }, () => {debugger}))
+    }, () => console.log(this.state)))
   }
+
+  //after handleSubmit, should redirect to /game page
 
   render() {
     return (
@@ -38,7 +40,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Route exact path='/' render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}/> }/>
-            <Route exact path='/game' render={ () => <Game /> }/>
+            <Route exact path='/game' render={ () => <Game data={this.state.data}/> }/>
           </div>
         </Router>
       </div>

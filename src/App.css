@@ -22,3 +22,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body {
+  background: linear-gradient(#EAC6C6, #3E1C27)
+}
+
+.formLabel {
+  font-family: 'Poiret One';
+  font-size: 30px;
+}
+
+.selections {
+  font-family: 'Poiret One';
+  font-size: 20px;
+}
+
+#startGameButton {
+  font-family: 'Arima Madurai';
+  font-size: 20px;
+}
+
+#gameName {
+  font-family: 'Parisienne';
+  font-size: 60px;
+}

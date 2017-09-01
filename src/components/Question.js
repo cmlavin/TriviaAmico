@@ -1,12 +1,10 @@
 import React from 'react';
 
-const Score = () => {
+const Question = () => {
   return(
     <div>
     </div>
   )
 }
 
-export default Score;
-
-//{props.score}
+export default Question
