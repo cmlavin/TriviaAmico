@@ -1,10 +1,13 @@
 import React from 'react'
 import Answer from './Answer'
 
-const AnswersContainer = () => {
+const AnswersContainer = (props) => {
   return(
     <div>
-      <Answer />
+      <Answer incorrect_answers={props.incorrect_answers}/>
+      <Answer incorrect_answers={props.incorrect_answers}/>
+      <Answer incorrect_answers={props.incorrect_answers}/>
+      <Answer incorrect_answers={props.incorrect_answers}/>
     </div>
   )
 }

@@ -21,8 +21,11 @@ class Game extends React.Component {
       questions: nextProps.data.results.map(obj => obj.question),
       correct_answers: nextProps.data.results.map(obj => obj.correct_answer),
       incorrect_answers: nextProps.data.results.map(obj => obj.incorrect_answers)
-    }), () => console.log(this.state)
+    }, () => console.log(this.state))
   }
+
+  //all the returned questions are being rendered on the Game page, need to only show one at a time based
+  //on clicking an answer button
 
   handleScore = () => {
     this.setState({
@@ -31,7 +34,7 @@ class Game extends React.Component {
   }
 
   render() {
-    debugger
+    //debugger
     return(
       <div>
         <Navbar />
