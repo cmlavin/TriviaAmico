@@ -4,7 +4,7 @@ import StartGame from './StartGame'
 const Homepage = (props) => {
   return(
     <div>
-      <h3 id="gameName">Trivia Amico</h3>
+      <h3 id="gameTitle">Trivia Amico</h3>
       <StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection}/>
     </div>
   )

@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Question = () => {
+const Question = (props) => {
   return(
     <div>
+      {props.questions}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar'
+import GameContainer from './GameContainer'
 import Score from './Score'
 import Timer from './Timer'
 import Hint from './Hint'
@@ -15,21 +16,27 @@ class Game extends React.Component {
     }
   }
 
-  handleGameData = (props) => {
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      questions: props.data.results.map(obj => obj.question),
-      correct_answers: props.data.results.map(obj => obj.correct_answer),
-      incorrect_answers: props.data.results.map(obj => obj.incorrect_answers)
+      questions: nextProps.data.results.map(obj => obj.question),
+      correct_answers: nextProps.data.results.map(obj => obj.correct_answer),
+      incorrect_answers: nextProps.data.results.map(obj => obj.incorrect_answers)
+    }), () => console.log(this.state)
+  }
+
+  handleScore = () => {
+    this.setState({
+      score: 0
     })
   }
 
-  //should I setState or just do this code in this.state??
-
   render() {
+    debugger
     return(
       <div>
         <Navbar />
-        <Score />
+        <GameContainer questions={this.state.questions} correct_answers={this.state.correct_answers} incorrect_answers={this.state.incorrect_answers}/>
+        <Score score={this.state.score}/>
         <Timer />
         <Hint />
       </div>

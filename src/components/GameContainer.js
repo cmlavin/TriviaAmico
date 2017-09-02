@@ -2,11 +2,11 @@ import React from 'react';
 import Question from './Question'
 import AnswersContainer from './AnswersContainer'
 
-const GameContainer = () => {
+const GameContainer = (props) => {
   return(
     <div>
-      <Question />
-      <AnswersContainer /> 
+      <Question questions={props.questions}/>
+      <AnswersContainer incorrect_answers={props.incorrect_answers}/>
     </div>
   )
 }

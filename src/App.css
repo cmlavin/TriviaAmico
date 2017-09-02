@@ -42,7 +42,20 @@ body {
   font-size: 20px;
 }
 
-#gameName {
+#gameTitle {
   font-family: 'Parisienne';
   font-size: 60px;
+}
+
+#scoreContainer {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  border-radius: 25px;
+  width: 150px;
+}
+
+#scoreText {
+  font-family: 'Niconne';
+  font-size: 30px;
 }
