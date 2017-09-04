@@ -15,7 +15,3 @@ const GameContainer = (props) => {
 }
 
 export default GameContainer
-
-// function displayQuestion(questions){
-//   questions.
-// }

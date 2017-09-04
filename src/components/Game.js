@@ -22,15 +22,13 @@ class Game extends React.Component {
       questions: nextProps.data.results.map(obj => obj.question).map(ele => this.decode(ele)),
       correct_answers: nextProps.data.results.map(obj => obj.correct_answer),
       incorrect_answers: nextProps.data.results.map(obj => obj.incorrect_answers)
-
     }, () => console.log(this.state))
   }
 
   decode = (string) => {
     let parser = new DOMParser()
-    let dom = parser.parseFromString('<!doctype html><body>' + string, 'text/html')
-    let decodedString = dom.body.textContent
-    return decodedString
+    let decodedText = parser.parseFromString(string, 'text/html').body.textContent
+    return decodedText
   }
 
   incrementIndex = () => {
