@@ -19,24 +19,27 @@ class Game extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      questions: nextProps.data.results.map(obj => obj.question),
+      questions: nextProps.data.results.map(obj => obj.question).map(ele => this.decode(ele)),
       correct_answers: nextProps.data.results.map(obj => obj.correct_answer),
       incorrect_answers: nextProps.data.results.map(obj => obj.incorrect_answers)
 
     }, () => console.log(this.state))
   }
 
-  //create new function that increments question index and call this function when an <Answer/> in clicked (onClick)
-
-//on clicking an answer, increment the index by 1
-  //all the returned questions are being rendered on the Game page, need to only show one at a time based
-  //on clicking an answer button
+  decode = (string) => {
+    let parser = new DOMParser()
+    let dom = parser.parseFromString('<!doctype html><body>' + string, 'text/html')
+    let decodedString = dom.body.textContent
+    return decodedString
+  }
 
   incrementIndex = () => {
     this.setState({
       index: this.state.index + 1
     })
   }
+
+  //if index > questions.length show that game is over
 
   handleScore = () => {
     this.setState({
@@ -45,7 +48,6 @@ class Game extends React.Component {
   }
 
   render() {
-    //debugger
     return(
       <div>
         <Navbar />
