@@ -1,6 +1,7 @@
 import React from 'react';
 import Question from './Question'
 import AnswersContainer from './AnswersContainer'
+import Timer from './Timer'
 
 const GameContainer = (props) => {
 
@@ -8,6 +9,7 @@ const GameContainer = (props) => {
     <div>
       <Question questions={props.questions}/>
       <AnswersContainer incorrect_answers={props.incorrect_answers}/>
+      <Timer />
     </div>
   )
 }

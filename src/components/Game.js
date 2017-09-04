@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from './Navbar'
 import GameContainer from './GameContainer'
 import Score from './Score'
-import Timer from './Timer'
 import Hint from './Hint'
 
 class Game extends React.Component {
@@ -43,7 +42,6 @@ class Game extends React.Component {
         <Navbar />
         <GameContainer questions={this.state.questions} answers={this.state.answers}/>
         <Score score={this.state.score}/>
-        <Timer />
         <Hint />
       </div>
     )
