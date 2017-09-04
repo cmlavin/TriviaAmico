@@ -59,3 +59,16 @@ body {
   font-family: 'Niconne';
   font-size: 30px;
 }
+
+#timerContainer {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  border-radius: 25px;
+  width: 275px;
+}
+
+#timerText {
+  font-family: 'Niconne';
+  font-size: 30px;
+}

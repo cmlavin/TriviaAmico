@@ -3,6 +3,7 @@ import Question from './Question'
 import AnswersContainer from './AnswersContainer'
 
 const GameContainer = (props) => {
+
   return(
     <div>
       <Question questions={props.questions}/>
@@ -12,3 +13,7 @@ const GameContainer = (props) => {
 }
 
 export default GameContainer
+
+// function displayQuestion(questions){
+//   questions.
+// }

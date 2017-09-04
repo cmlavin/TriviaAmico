@@ -1,9 +1,10 @@
 import React from 'react'
+import { Button } from 'semantic-ui-react'
 
 const Answer = (props) => {
   return(
     <div>
-    {props.incorrect_answers}
+    <Button>{props.answers}</Button>
     </div>
   )
 }
