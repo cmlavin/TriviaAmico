@@ -7,8 +7,8 @@ const GameContainer = (props) => {
 
   return(
     <div>
-      <Question questions={props.questions}/>
-      <AnswersContainer incorrect_answers={props.incorrect_answers}/>
+      <Question questions={props.questions} index={props.index}/>
+      <AnswersContainer incorrect_answers={props.incorrect_answers} index={props.index} incrementIndex={props.incrementIndex}/>
       <Timer />
     </div>
   )

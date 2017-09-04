@@ -16,10 +16,8 @@ const AnswersContainer = (props) => {
   // }
   return(
     <div>
-      <Answer answers={props.answers}/>
-      <Answer answers={props.answers}/>
-      <Answer answers={props.answers}/>
-      <Answer answers={props.answers}/>
+      {console.log(props)}
+      {props.incorrect_answers.map(ans => <Answer ans={props.ans} incrementIndex={props.incrementIndex}/>)}
     </div>
   )
 }
