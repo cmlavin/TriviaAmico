@@ -14,7 +14,7 @@ class Timer extends React.Component {
     let timeLeft = this.displayTime(this.state.timeAlloted)
     this.setState({
       time: timeLeft
-    })
+    }, this.startTimer())
   }
 
   displayTime = (seconds) => {
@@ -47,7 +47,6 @@ class Timer extends React.Component {
   render() {
     return(
       <div id="timerContainer">
-        <button onClick={this.startTimer}>Start</button>
         <h3 id="timerText">Time left: {this.state.time.min} min {this.state.time.sec} sec</h3>
       </div>
     )
