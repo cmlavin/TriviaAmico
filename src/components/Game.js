@@ -1,10 +1,11 @@
 import React from 'react';
 import Navbar from './Navbar'
 import GameContainer from './GameContainer'
+import Loading from './Loading'
+import GameOver from './GameOver'
 import Timer from './Timer'
 import Hint from './Hint'
 
-//Timer is not rerendering upon clicking on an answer button
 
 class Game extends React.Component {
   constructor() {
@@ -24,26 +25,13 @@ class Game extends React.Component {
     return(
       <div>
         <Navbar />
-        {this.props.data.length !== 0 ?
-          <GameContainer data={this.props.data[this.state.index]} incrementIndex={this.incrementIndex}/> : null}
+        {this.props.data.length === 0 ? <Loading /> : this.props.data.length === this.state.index ?
+          <GameOver /> : <GameContainer data={this.props.data[this.state.index]} incrementIndex={this.incrementIndex}/>}
         <Timer />
         <Hint />
       </div>
     )
   }
 }
-//could insert loading component instead of null in ternary
 
 export default Game;
-
-// incrementIndex = () => {
-//   this.setState({
-//     index: this.state.index + 1
-//   }, this.handleGameOver())
-// }
-//
-// handleGameOver = (props) => {
-//   if (this.state.index > props.data.length) {
-//
-//   }
-// }

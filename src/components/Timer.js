@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Timer is not rerendering upon clicking on an answer button
 class Timer extends React.Component {
   constructor() {
     super();
@@ -42,6 +43,10 @@ class Timer extends React.Component {
     if (counter === 0) {
       clearInterval(this.timer);
     }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
   }
 
   render() {
