@@ -9,6 +9,7 @@ class GameContainer extends React.Component{
     this.state = {
       score: 0
     }
+    this.checkAnswer = this.checkAnswer.bind(this)
   }
 
   combineAnswers = (array, element) => {
@@ -23,9 +24,15 @@ class GameContainer extends React.Component{
     return decodedText
   }
 
+  checkAnswer = (event) => {
+    let clicked = event.target.textContent
+    clicked === this.props.data.correct_answer ? this.handleScore() : null
+    this.props.incrementIndex()
+  }
+
   handleScore = () => {
     this.setState({
-      score: 0
+      score: this.state.score + 500
     })
   }
 
@@ -33,7 +40,9 @@ class GameContainer extends React.Component{
     return(
       <div>
         <Question question={this.decode(this.props.data.question)} />
-        <AnswersContainer answers={this.combineAnswers(this.props.data.incorrect_answers, this.props.data.correct_answer)} incrementIndex={this.props.incrementIndex}/>
+        <AnswersContainer answers={this.combineAnswers(this.props.data.incorrect_answers, this.props.data.correct_answer)}
+          incrementIndex={this.props.incrementIndex}
+          checkAnswer={this.checkAnswer}/>
         <Score score={this.state.score}/>
       </div>
     )

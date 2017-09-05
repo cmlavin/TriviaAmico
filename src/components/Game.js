@@ -32,6 +32,7 @@ class Game extends React.Component {
     )
   }
 }
+//could insert loading component instead of null in ternary
 
 export default Game;
 
