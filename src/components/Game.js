@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar'
 import GameContainer from './GameContainer'
-import Score from './Score'
+import Timer from './Timer'
 import Hint from './Hint'
 
 //Timer is not rerendering upon clicking on an answer button
@@ -10,22 +10,13 @@ class Game extends React.Component {
   constructor() {
     super()
     this.state = {
-      index: 0,
-      score: 0
+      index: 0
     }
   }
-  //     questions: nextProps.data.map(obj => obj.question).map(ele => this.decode(ele)),
 
   incrementIndex = () => {
     this.setState({
       index: this.state.index + 1
-    })
-  }
-  //if index > questions.length show that game is over
-
-  handleScore = () => {
-    this.setState({
-      score: 0
     })
   }
 
@@ -35,7 +26,7 @@ class Game extends React.Component {
         <Navbar />
         {this.props.data.length !== 0 ?
           <GameContainer data={this.props.data[this.state.index]} incrementIndex={this.incrementIndex}/> : null}
-        <Score score={this.state.score}/>
+        <Timer />
         <Hint />
       </div>
     )
@@ -43,3 +34,15 @@ class Game extends React.Component {
 }
 
 export default Game;
+
+// incrementIndex = () => {
+//   this.setState({
+//     index: this.state.index + 1
+//   }, this.handleGameOver())
+// }
+//
+// handleGameOver = (props) => {
+//   if (this.state.index > props.data.length) {
+//
+//   }
+// }

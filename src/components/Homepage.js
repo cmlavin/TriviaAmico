@@ -11,3 +11,5 @@ const Homepage = (props) => {
 }
 
 export default Homepage;
+
+//current_user ? <StartGame/> : <LoginContainer/>

@@ -4,7 +4,7 @@ import Answer from './Answer'
 const AnswersContainer = (props) => {
   return(
     <div>
-      {props.answers.map( answer => <Answer answer={answer} incrementIndex={props.incrementIndex}/>)}
+      {props.answers.map( (answer, i) => <Answer answer={answer} key={i} incrementIndex={props.incrementIndex}/>)}
     </div>
   )
 }
