@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react'
 const Answer = (props) => {
   return(
     <div>
-    <Button onClick={props.incrementIndex}>{props.ans}</Button>
+    <Button onClick={props.incrementIndex}>{props.answer}</Button>
     </div>
   )
 }

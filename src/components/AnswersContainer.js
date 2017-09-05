@@ -2,28 +2,31 @@ import React from 'react'
 import Answer from './Answer'
 
 const AnswersContainer = (props) => {
+  let answers = props.incorrect_answers.map( (arr, i) => [...arr, props.correct_answers[i]] )
 
-  // function shuffle(array) {
-  //   let len = array.length
-  //   let x = array[len]
-  //
-  //   while(len) {
-  //     let y = Math.floor(Math.random() * len--);
-  //     array[len] = array[y];
-  //     array[y] = x;
-  //   }
-  //   return array;
-  // }
   return(
     <div>
-      {console.log(props)}
-      {props.incorrect_answers.map(ans => <Answer ans={props.ans} incrementIndex={props.incrementIndex}/>)}
+      {answers.map( arr => arr.map( answer => <Answer answer={answer} />))}
     </div>
   )
 }
 
 export default AnswersContainer
-//call function with props.incorrect_answers
+
+//here combine arrays and shuffle
+
+// function shuffle(array) {
+//   let len = array.length
+//   let x = array[len]
+//
+//   while(len) {
+//     let y = Math.floor(Math.random() * len--);
+//     array[len] = array[y];
+//     array[y] = x;
+//   }
+//   return array;
+// }
+
 
 //fisher-yates shuffling algorithm
 // function shuffle(array) {
