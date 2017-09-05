@@ -5,7 +5,8 @@ import Timer from './Timer'
 
 const GameContainer = (props) => {
   const combineAnswers = (array, element) => {
-    let answers = [...array, element]
+    let combined = [...array, element]
+    let answers = combined.map( element => decode(element) )
     return answers
   }
 
