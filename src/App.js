@@ -13,7 +13,7 @@ class App extends React.Component {
       category: '',
       difficulty: '',
       type: '',
-      data: {}
+      data: []
     }
   }
 
@@ -28,7 +28,7 @@ class App extends React.Component {
     let {number, category, difficulty, type} = this.state
     OpenTriviaDB.fetchAPIData(number, category, difficulty, type)
     .then(data => this.setState({
-      data
+      data: data.results
     }, () => console.log(this.state)))
   }
 

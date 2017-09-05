@@ -11,46 +11,16 @@ class Game extends React.Component {
     super()
     this.state = {
       index: 0,
-      questions: [],
-      correct_answers: [],
-      incorrect_answers: [],
       score: 0
     }
   }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      questions: nextProps.data.results.map(obj => obj.question).map(ele => this.decode(ele)),
-      correct_answers: nextProps.data.results.map(obj => obj.correct_answer),
-      incorrect_answers: nextProps.data.results.map(obj => obj.incorrect_answers)
-    }, () => console.log(this.state))
-  }
-
-  //answers: this.state.incorrect_answers[this.state.index].concat(this.state.correct_answers[this.state.index])
-
-  //instead of console.log as 2nd argument, call allAnswers method
-  //allAnswers combines incorrect and correct answers into one array which it returns
-
-  // allAnswers = (incorr, corr) => {
-  //   let answers = incorr.map(arr => {return arr[this.state.index].push(corr[this.state.index])})
-  //   console.log(answers)
-  // }
-
-  //to merge correct_answers array with incorrect_answers array use .concat method or spread operator
-  //answers: [...this.state.incorrect_answers, this.state.correct_answers]
-
-  decode = (string) => {
-    let parser = new DOMParser()
-    let decodedText = parser.parseFromString(string, 'text/html').body.textContent
-    return decodedText
-  }
+  //     questions: nextProps.data.map(obj => obj.question).map(ele => this.decode(ele)),
 
   incrementIndex = () => {
     this.setState({
       index: this.state.index + 1
     })
   }
-
   //if index > questions.length show that game is over
 
   handleScore = () => {
@@ -63,11 +33,8 @@ class Game extends React.Component {
     return(
       <div>
         <Navbar />
-        <GameContainer questions={this.state.questions}
-          correct_answers={this.state.correct_answers}
-          incorrect_answers={this.state.incorrect_answers}
-          index={this.state.index}
-          incrementIndex={this.incrementIndex}/>
+        {this.props.data.length !== 0 ?
+          <GameContainer data={this.props.data[this.state.index]} incrementIndex={this.incrementIndex}/> : null}
         <Score score={this.state.score}/>
         <Hint />
       </div>
@@ -76,5 +43,3 @@ class Game extends React.Component {
 }
 
 export default Game;
-
-//answers: nextProps.data.results.map((obj, i) => obj.incorrect_answers[i]).push(this.state.correct_answers[0])

@@ -4,16 +4,28 @@ import AnswersContainer from './AnswersContainer'
 import Timer from './Timer'
 
 const GameContainer = (props) => {
+  const combineAnswers = (array, element) => {
+    let answers = [...array, element]
+    return answers
+  }
+
+  const decode = (string) => {
+    let parser = new DOMParser()
+    let decodedText = parser.parseFromString(string, 'text/html').body.textContent
+    return decodedText
+  }
+
   return(
     <div>
-      <Question questions={props.questions} index={props.index}/>
-      <AnswersContainer correct_answers={props.correct_answers}
-        incorrect_answers={props.incorrect_answers}
-        index={props.index}
-        incrementIndex={props.incrementIndex}/>
+      <Question question={decode(props.data.question)} />
+      <AnswersContainer answers={combineAnswers(props.data.incorrect_answers, props.data.correct_answer)} incrementIndex={props.incrementIndex}/>
       <Timer />
     </div>
   )
 }
 
 export default GameContainer
+
+// in this function pass the correct answer
+// and the incorrect answers and combine them into one array
+// and pass it into AnswersContainer as a single prop

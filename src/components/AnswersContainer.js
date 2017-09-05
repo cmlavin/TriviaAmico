@@ -2,11 +2,9 @@ import React from 'react'
 import Answer from './Answer'
 
 const AnswersContainer = (props) => {
-  let answers = props.incorrect_answers.map( (arr, i) => [...arr, props.correct_answers[i]] )
-
   return(
     <div>
-      {answers.map( arr => arr.map( answer => <Answer answer={answer} />))}
+      {props.answers.map( answer => <Answer answer={answer} incrementIndex={props.incrementIndex}/>)}
     </div>
   )
 }
