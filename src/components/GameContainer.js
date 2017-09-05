@@ -31,12 +31,14 @@ class GameContainer extends React.Component{
   }
 
   handleScore = () => {
+    let difficulty = this.props.difficulty
+    let points = difficulty === "easy" ? 400 : difficulty === "medium" ? 800 : 1200
     this.setState({
-      score: this.state.score + 500
+      score: this.state.score + points
     })
   }
 
-  render(props) {
+  render() {
     return(
       <div>
         <Question question={this.decode(this.props.data.question)} />

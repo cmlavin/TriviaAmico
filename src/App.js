@@ -38,7 +38,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Route exact path='/' render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}/> }/>
-            <Route exact path='/game' render={ () => <Game data={this.state.data}/> }/>
+            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty}/> }/>
           </div>
         </Router>
       </div>
