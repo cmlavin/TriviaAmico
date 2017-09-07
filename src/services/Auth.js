@@ -3,7 +3,7 @@ class Auth {
   static signup(signupParams) {
     return fetch('http://localhost:3000/api/v1/signup', {
       method: 'POST',
-      body: JSON.stringify(signupParams)
+      body: signupParams
     })
     .then(resp => {return resp.json()})
   }
@@ -11,7 +11,7 @@ class Auth {
   static login(loginParams) {
     return fetch('http://localhost:3000/api/v1/login', {
       method: 'POST',
-      body: JSON.stringify(loginParams)
+      body: loginParams
     })
     .then(resp => {return resp.json()})
   }

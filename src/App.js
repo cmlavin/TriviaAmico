@@ -62,6 +62,7 @@ class App extends React.Component {
       formData.append('email', inputEmail)
       formData.append('username', inputUsername)
       formData.append('password', inputPassword)
+      debugger
       Auth.signup(formData)
       .then(data => {
         if (data.id) {
