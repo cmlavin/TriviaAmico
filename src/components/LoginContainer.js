@@ -4,9 +4,9 @@ import { Button } from 'semantic-ui-react'
 
 const LoginContainer = () => {
   return(
-    <div>
-      <Link to='/signup'><Button>Sign up</Button></Link>
-      <Link to='/login'><Button>Log in</Button></Link>
+    <div id="loginContainer">
+      <Link to='/signup'><Button id="signupButton" content='Sign up' icon='signup' /></Link>
+      <Link to='/login'><Button id="loginButton" content="Log in" icon='user' /></Link>
     </div>
   )
 }

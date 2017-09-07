@@ -8,7 +8,7 @@ import questionTypes from '../options/questionTypes'
 
   const StartGame = (props) => {
     return(
-      <div>
+      <div id="startGameForm">
         <Form>
           <Form.Field inline>
             <label><h3 className="formLabel">Category</h3></label>

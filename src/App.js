@@ -23,16 +23,54 @@ class App extends React.Component {
     }
   }
 
-  login(loginParams) {
-    Auth.login(loginParams)
-    .then((json) => {
-      localStorage.setItem('jwt', json.jwt)
-      this.setState({
-        jwt: json.jwt,
-        isLoggedIn: true
+  login = (event) => {
+    let inputUsername = event.target.elements.username.value
+    let inputPassword = event.target.elements.password.value
+    if (inputUsername !== '' && inputPassword !== '') {
+      let formData = new FormData()
+      formData.append('username', inputUsername)
+      formData.append('password', inputPassword)
+      Auth.login(formData)
+      .then(data => {
+        localStorage.setItem('jwt', data.jwt)
+        console.log(data.jwt)
+        this.setState({
+          jwt: data.jwt,
+          isLoggedIn: true
+        })
       })
+    }
+  }
+
+  currentUser() {
+    Auth.currentUser()
+    .then(data => {
+      console.log(data)
+      this.setState({
+        user: data
+      })
+      console.log(this.state.user)
     })
   }
+
+  signup = (event) => {
+    let inputEmail = event.target.elements.email.value
+    let inputUsername = event.target.elements.username.value
+    let inputPassword = event.target.elements.password.value
+    if (inputEmail !== '' && inputUsername !== '' && inputPassword !== '') {
+      let formData = new FormData()
+      formData.append('email', inputEmail)
+      formData.append('username', inputUsername)
+      formData.append('password', inputPassword)
+      Auth.signup(formData)
+      .then(data => {
+        if (data.id) {
+          console.log('User successfully created.')
+        }
+      })
+    }
+  }
+//inputEmail && inputUsername && inputPassword !== '' ? "" : "error message"
 
   currentUser() {
     Auth.currentUser()
@@ -65,10 +103,10 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <div>
-            <Route exact path='/' render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} /> }/>
+            <Route exact path='/' render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn}/> }/>
             <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty}/> }/>
-            <Route exact path='/signup' render={ () => <Signup /> }/>
-            <Route exact path='/login' render={ () => <Login /> }/>
+            <Route exact path='/signup' render={ () => <Signup signup={this.signup}/> }/>
+            <Route exact path='/login' render={ () => <Login login={this.login}/> }/>
           </div>
         </Router>
       </div>

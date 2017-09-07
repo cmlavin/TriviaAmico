@@ -42,9 +42,18 @@ body {
   font-size: 20px;
 }
 
-#gameTitle {
+.gameTitle {
   font-family: 'Parisienne';
   font-size: 90px;
+  margin: auto;
+}
+
+#signupFormGrid {
+  margin: auto;
+}
+
+#loginFormGrid {
+  margin: auto;
 }
 
 #scoreContainer {

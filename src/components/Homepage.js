@@ -5,7 +5,7 @@ import LoginContainer from './LoginContainer'
 const Homepage = (props) => {
   return(
     <div>
-      <h3 id="gameTitle">Trivia Amico</h3>
+      <h3 className="gameTitle">Trivia Amico</h3>
       {props.loggedIn ? <StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection} /> : <LoginContainer />}
     </div>
   )
@@ -13,4 +13,5 @@ const Homepage = (props) => {
 
 export default Homepage;
 
-//current_user ? <StartGame/> : <LoginContainer/>
+//{props.loggedIn ? <StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection} /> : <LoginContainer />}
+//<StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection} />
