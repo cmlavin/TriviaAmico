@@ -11,7 +11,7 @@ class Auth {
   static login(loginParams) {
     return fetch('http://localhost:3000/api/v1/login', {
       method: 'POST',
-      body: loginParams
+      body: loginParams // JSON.stringify()
     })
     .then(resp => {return resp.json()})
   }

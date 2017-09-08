@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import OpenTriviaDB from './adapters/OpenTriviaDB'
 import Homepage from './components/Homepage'
 import Game from './components/Game'
@@ -31,15 +31,25 @@ class App extends React.Component {
       formData.append('username', inputUsername)
       formData.append('password', inputPassword)
       Auth.login(formData)
-      .then(data => {
-        localStorage.setItem('jwt', data.jwt)
-        console.log(data.jwt)
-        this.setState({
-          jwt: data.jwt,
-          isLoggedIn: true
-        })
+      .then(data => {  
+        console.log(data)
+        if (!data.error) {
+          this.setState({
+            jwt: data.jwt,
+            isLoggedIn: true,
+            user: data.user
+          })
+          localStorage.setItem('jwt', data.jwt)
+        }
       })
     }
+  }
+
+  logout() {
+    Auth.logout()
+    this.setState({
+      isLoggedIn: false
+    })
   }
 
   currentUser() {
@@ -54,6 +64,7 @@ class App extends React.Component {
   }
 
   signup = (event) => {
+    event.persist()
     let inputEmail = event.target.elements.email.value
     let inputUsername = event.target.elements.username.value
     let inputPassword = event.target.elements.password.value
@@ -62,27 +73,17 @@ class App extends React.Component {
       formData.append('email', inputEmail)
       formData.append('username', inputUsername)
       formData.append('password', inputPassword)
-      debugger
       Auth.signup(formData)
       .then(data => {
+        console.log(data)
         if (data.id) {
           console.log('User successfully created.')
+          this.login(event)
         }
       })
     }
   }
 //inputEmail && inputUsername && inputPassword !== '' ? "" : "error message"
-
-  currentUser() {
-    Auth.currentUser()
-      .then((user) => {
-        console.log(user)
-        this.setState({
-          user: user
-        })
-        console.log(this.state.user)
-      })
-    }
 
   handleSelection = (event, data) => {
     const property = event.currentTarget.dataset.name
@@ -98,16 +99,17 @@ class App extends React.Component {
       data: data.results
     }, () => console.log(this.state)))
   }
+  //GameData.sendGameData
 
   render() {
     return (
       <div className="App">
         <Router>
           <div>
-            <Route exact path='/' render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn}/> }/>
-            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty}/> }/>
-            <Route exact path='/signup' render={ () => <Signup signup={this.signup}/> }/>
-            <Route exact path='/login' render={ () => <Login login={this.login}/> }/>
+            <Route exact path="/" render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} />} />
+            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} /> } />
+            <Route exact path='/signup' render={ () => {this.state.isLoggedIn === true ? <Redirect to="/" /> : <Signup login={this.login} signup={this.signup} />} }/>
+            <Route exact path="/login" render={ () => this.state.isLoggedIn === true ? <Redirect to="/" /> : <Login login={this.login} />} />
           </div>
         </Router>
       </div>

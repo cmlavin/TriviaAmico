@@ -12,6 +12,3 @@ const Homepage = (props) => {
 }
 
 export default Homepage;
-
-//{props.loggedIn ? <StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection} /> : <LoginContainer />}
-//<StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection} />
