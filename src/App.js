@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import OpenTriviaDB from './adapters/OpenTriviaDB'
 import Homepage from './components/Homepage'
 import Game from './components/Game'
+import UserDashboard from './components/UserDashboard'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import Auth from './services/Auth'
@@ -31,7 +32,7 @@ class App extends React.Component {
       formData.append('username', inputUsername)
       formData.append('password', inputPassword)
       Auth.login(formData)
-      .then(data => {  
+      .then(data => {
         console.log(data)
         if (!data.error) {
           this.setState({
@@ -108,8 +109,8 @@ class App extends React.Component {
           <div>
             <Route exact path="/" render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} />} />
             <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} /> } />
-            <Route exact path='/signup' render={ () => {this.state.isLoggedIn === true ? <Redirect to="/" /> : <Signup login={this.login} signup={this.signup} />} }/>
-            <Route exact path="/login" render={ () => this.state.isLoggedIn === true ? <Redirect to="/" /> : <Login login={this.login} />} />
+            <Route exact path='/signup' render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Signup login={this.login} signup={this.signup} />)}/>
+            <Route exact path="/login" render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Login login={this.login} />)}/>
           </div>
         </Router>
       </div>

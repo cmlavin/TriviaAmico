@@ -18,13 +18,28 @@
   font-size: large;
 }
 
+.ui.form .inline.field>:first-child, .ui.form .inline.fields .field>:first-child {
+  margin:0;
+}
+
+.ui.form .inline.field>label, .ui.form .inline.field>p, .ui.form .inline.fields .field>label, .ui.form .inline.fields .field>p, .ui.form .inline.fields>label {
+  width:290px!important;
+  text-align:left;
+}
+
+.form-select-container {
+  width:100%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
 body {
-  background: linear-gradient(#EAC6C6, #3E1C27)
+  background: linear-gradient(#EAC6C6, #3E1C27);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 }
 
 .formLabel {
@@ -38,22 +53,61 @@ body {
 }
 
 #startGameButton {
-  font-family: 'Arima Madurai';
-  font-size: 20px;
+  font-family: 'Kurale';
+  color: black;
+  background-color: #A9C4DF;
 }
 
 .gameTitle {
   font-family: 'Parisienne';
-  font-size: 90px;
+  font-size: 120px;
   margin: auto;
+  margin-top: 70px;
+  font-weight: bold;
 }
 
 #signupFormGrid {
-  margin: auto;
+  margin-top: 100px;
+}
+
+#signupFormHeader {
+  font-family: 'Kurale';
+  font-size: 30px;
+}
+
+#signupButton {
+  font-family: 'Kurale';
+  color: black;
+  background-color: #A9C4DF;
+}
+
+#loginContainerGrid {
+  margin-top: 70px;
+  margin-left: 100px;
+}
+
+#loginContainerHeader {
+  font-family: 'Kurale';
+  font-size: 30px;
 }
 
 #loginFormGrid {
-  margin: auto;
+  margin-top: 100px;
+}
+
+#loginFormHeader {
+  font-family: 'Kurale';
+  font-size: 30px;
+}
+
+#loginButton {
+  font-family: 'Kurale';
+  color: black;
+  background-color: #A9C4DF;
+}
+
+#loginButton:hover {
+  background: rgba(169, 196, 223, 0.8);
 }
 
 #scoreContainer {
