@@ -5,9 +5,11 @@ const NextQuestion = (props) => {
   return(
     <div>
       {props.nextQuestion === true ?
-        <Button active id="nextQuestionButton">Next Question</Button> : <Button disabled id="nextQuestionButton">Next Question</Button>}
+        <Button active id="nextQuestionButton" onClick={props.incrementIndex}>Next Question</Button> : <Button disabled id="nextQuestionButton" onClick={props.incrementIndex}>Next Question</Button>}
     </div>
   )
 }
 
 export default NextQuestion
+
+//let buttonStatus = 'active' if props.nextQuestion === true and = 'disabled' if props.nextQuestion === false

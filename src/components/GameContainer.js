@@ -49,9 +49,9 @@ class GameContainer extends React.Component{
       <div>
         <Question question={this.decode(this.props.data.question)} />
         <AnswersContainer answers={this.combineAnswers(this.props.data.incorrect_answers, this.props.data.correct_answer)}
-          incrementIndex={this.props.incrementIndex} checkAnswer={this.checkAnswer}/>
+          checkAnswer={this.checkAnswer}/>
         <Score score={this.state.score}/>
-        <NextQuestion nextQuestion={this.state.nextQuestion}/>
+        <NextQuestion nextQuestion={this.state.nextQuestion} incrementIndex={this.props.incrementIndex} />
       </div>
     )
   }
