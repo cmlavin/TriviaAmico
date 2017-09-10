@@ -27,14 +27,20 @@ class GameContainer extends React.Component{
 
   checkAnswer = (event) => {
     let clicked = event.target
-    debugger
     clicked.textContent === this.props.data.correct_answer ? (clicked.style.backgroundColor = '#289323') && (this.handleScore()) : clicked.style.backgroundColor = '#FF0000'
     this.setState({
       nextQuestion: true
     })
 
   }
-  //this.props.incrementIndex()
+
+  //set all button bkgd colors back to default
+  handleNextQuestion = () => {
+    this.setState({
+      nextQuestion: false
+    })
+    this.props.incrementIndex()
+  }
 
   handleScore = () => {
     let difficulty = this.props.difficulty
@@ -48,10 +54,9 @@ class GameContainer extends React.Component{
     return(
       <div>
         <Question question={this.decode(this.props.data.question)} />
-        <AnswersContainer answers={this.combineAnswers(this.props.data.incorrect_answers, this.props.data.correct_answer)}
-          checkAnswer={this.checkAnswer}/>
+        <AnswersContainer answers={this.combineAnswers(this.props.data.incorrect_answers, this.props.data.correct_answer)} checkAnswer={this.checkAnswer}/>
         <Score score={this.state.score}/>
-        <NextQuestion nextQuestion={this.state.nextQuestion} incrementIndex={this.props.incrementIndex} />
+        <NextQuestion nextQuestion={this.state.nextQuestion} handleNextQuestion={this.handleNextQuestion}/>
       </div>
     )
   }

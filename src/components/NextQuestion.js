@@ -5,7 +5,7 @@ const NextQuestion = (props) => {
   return(
     <div>
       {props.nextQuestion === true ?
-        <Button active id="nextQuestionButton" onClick={props.incrementIndex}>Next Question</Button> : <Button disabled id="nextQuestionButton" onClick={props.incrementIndex}>Next Question</Button>}
+        <Button active id="nextQuestionButton" onClick={props.handleNextQuestion}>Next Question</Button> : <Button disabled id="nextQuestionButton" onClick={props.handleNextQuestion}>Next Question</Button>}
     </div>
   )
 }
