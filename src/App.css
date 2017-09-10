@@ -110,6 +110,26 @@ body {
   background: rgba(169, 196, 223, 0.8);
 }
 
+#answerButton {
+  font-family: 'Kurale';
+  color: black;
+  background-color: #A9C4DF;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  border-radius: 25px;
+}
+
+#nextQuestionButton {
+  font-family: 'Kurale';
+  color: black;
+  background-color: #A9C4DF;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  border-radius: 25px;
+}
+
 #scoreContainer {
   border-style: solid;
   border-width: medium;

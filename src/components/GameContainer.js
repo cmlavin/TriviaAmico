@@ -2,12 +2,14 @@ import React from 'react';
 import Question from './Question'
 import AnswersContainer from './AnswersContainer'
 import Score from './Score'
+import NextQuestion from './NextQuestion'
 
 class GameContainer extends React.Component{
   constructor() {
     super()
     this.state = {
-      score: 0
+      score: 0,
+      nextQuestion: false
     }
   }
 
@@ -24,10 +26,15 @@ class GameContainer extends React.Component{
   }
 
   checkAnswer = (event) => {
-    let clicked = event.target.textContent
-    clicked === this.props.data.correct_answer ? this.handleScore() : null
-    this.props.incrementIndex()
+    let clicked = event.target
+    debugger
+    clicked.textContent === this.props.data.correct_answer ? (clicked.style.backgroundColor = '#289323') && (this.handleScore()) : clicked.style.backgroundColor = '#FF0000'
+    this.setState({
+      nextQuestion: true
+    })
+
   }
+  //this.props.incrementIndex()
 
   handleScore = () => {
     let difficulty = this.props.difficulty
@@ -44,6 +51,7 @@ class GameContainer extends React.Component{
         <AnswersContainer answers={this.combineAnswers(this.props.data.incorrect_answers, this.props.data.correct_answer)}
           incrementIndex={this.props.incrementIndex} checkAnswer={this.checkAnswer}/>
         <Score score={this.state.score}/>
+        <NextQuestion nextQuestion={this.state.nextQuestion}/>
       </div>
     )
   }
