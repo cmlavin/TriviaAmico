@@ -71,9 +71,9 @@ class App extends React.Component {
     let inputPassword = event.target.elements.password.value
     if (inputEmail !== '' && inputUsername !== '' && inputPassword !== '') {
       let formData = new FormData()
-      formData.append('email', inputEmail)
-      formData.append('username', inputUsername)
-      formData.append('password', inputPassword)
+      formData.append('user[email]', inputEmail)
+      formData.append('user[username]', inputUsername)
+      formData.append('user[password]', inputPassword)
       Auth.signup(formData)
       .then(data => {
         console.log(data)
