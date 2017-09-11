@@ -27,9 +27,7 @@ class GameContainer extends React.Component{
   }
 
   checkAnswer = (event) => {
-    let clicked = event.target
-    debugger
-    let answer = clicked.textContent === this.props.data.correct_answer ? true : false
+    let answer = event.target.clicked.textContent === this.props.data.correct_answer ? true : false
     answer === true ? this.handleScore() : null
     this.setState({
       nextQuestion: true,
@@ -37,9 +35,6 @@ class GameContainer extends React.Component{
     })
     return answer
   }
-  // clicked.textContent === this.props.data.correct_answer ?
-  //   (clicked.style.backgroundColor = '#289323') && (this.handleScore()) : clicked.style.backgroundColor = '#FF0000'
-  //clicked.style.backgroundColor = '#289323'
 
   handleNextQuestion = () => {
     this.setState({
