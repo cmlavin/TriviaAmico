@@ -120,6 +120,10 @@ body {
   border-radius: 25px;
 }
 
+#answerButton:disabled {
+  opacity: 1!important;
+}
+
 #nextQuestionButton {
   font-family: 'Kurale';
   color: black;

@@ -9,7 +9,8 @@ class GameContainer extends React.Component{
     super()
     this.state = {
       score: 0,
-      nextQuestion: false
+      nextQuestion: false,
+      clickedAnswer: false
     }
   }
 
@@ -27,19 +28,22 @@ class GameContainer extends React.Component{
 
   checkAnswer = (event) => {
     let clicked = event.target
-    clicked.textContent === this.props.data.correct_answer ? (clicked.style.backgroundColor = '#289323') && (this.handleScore()) : clicked.style.backgroundColor = '#FF0000'
+    clicked.textContent === this.props.data.correct_answer ? this.handleScore() : null
     this.setState({
-      nextQuestion: true
+      nextQuestion: true,
+      clickedAnswer: true
     })
-
+    this.props.gameScore(this.state.score)
   }
+  //clicked.style.backgroundColor = '#289323'
 
-  //set all button bkgd colors back to default
   handleNextQuestion = () => {
     this.setState({
-      nextQuestion: false
+      nextQuestion: false,
+      clickedAnswer: false
     })
     this.props.incrementIndex()
+    this.props.gameOver()
   }
 
   handleScore = () => {
@@ -48,14 +52,14 @@ class GameContainer extends React.Component{
     this.setState({
       score: this.state.score + points
     })
-    this.props.gameScore(this.state.score)
   }
 
   render() {
     return(
       <div>
         <Question question={this.decode(this.props.data.question)} />
-        <AnswersContainer answers={this.combineAnswers(this.props.data.incorrect_answers, this.props.data.correct_answer)} checkAnswer={this.checkAnswer}/>
+        <AnswersContainer answers={this.combineAnswers(this.props.data.incorrect_answers, this.props.data.correct_answer)}
+          checkAnswer={this.checkAnswer} clickedAnswer={this.state.clickedAnswer}/>
         <Score score={this.state.score}/>
         <NextQuestion nextQuestion={this.state.nextQuestion} handleNextQuestion={this.handleNextQuestion}/>
       </div>

@@ -5,7 +5,7 @@ const AnswersContainer = (props) => {
   return(
     <div>
       {props.answers.map( (answer, i) =>
-        <Answer answer={answer} key={i} checkAnswer={props.checkAnswer}/>)}
+        <Answer answer={answer} key={i} checkAnswer={props.checkAnswer} clickedAnswer={props.clickedAnswer}/>)}
     </div>
   )
 }

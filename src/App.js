@@ -7,6 +7,7 @@ import UserDashboard from './components/UserDashboard'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import Auth from './services/Auth'
+import ScoreData from './adapters/ScoreData'
 import './App.css';
 
 class App extends React.Component {
@@ -20,7 +21,9 @@ class App extends React.Component {
       data: [],
       jwt: '',
       isLoggedIn: false,
-      user: {}
+      user: {},
+      scores: [],
+      games: {}
     }
   }
 
@@ -100,16 +103,23 @@ class App extends React.Component {
       data: data.results
     }, () => console.log(this.state)))
   }
+
+  gameStatus = (status) => {
+    debugger
+    let gameStatus = status
+    return gameStatus
+  }
   //GameData.sendGameData
   //only when game is over (need to check for this), send score data to the database using the ScoreData adapter
   gameScore = (score) => {
     debugger
-    //use this method to call ScoreData.sendScore(score)
+    if(this.gameStatus() === true) {
+      ScoreData.sendScore(score)
+      .then(data => this.setState({
+        scores: data
+      }, () => console.log(this.state.scores)))
+    }
   }
-  //ScoreData.sendScore(score)
-  //.then(data => this.setState({
-//   scoreData: data
-// }))
 
   render() {
     return (
@@ -117,7 +127,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Route exact path="/" render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} />} />
-            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} gameScore={this.gameScore}/> } />
+            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} gameScore={this.gameScore} gameStatus={this.gameStatus}/> } />
             <Route exact path='/signup' render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Signup login={this.login} signup={this.signup} />)}/>
             <Route exact path="/login" render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Login login={this.login} />)}/>
           </div>
