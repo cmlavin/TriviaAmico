@@ -11,5 +11,4 @@ const Answer = (props) => {
 
 export default Answer
 
-//onClick call function that displays correct or wrong and then increments the index
-//if clicked button is correct answer, turn button green, else turn it red
+//add color property onto Button?  to set default color to be blue

@@ -1,11 +1,10 @@
 import React from 'react'
-import Score from './Score'
 
-const GameOver = () => {
+const GameOver = (props) => {
   return(
     <div id="gameOverContainer">
       <h3>Game Over</h3>
-      <h3>Final Score: </h3>
+      <h3>Final Score: {props.gameScore}</h3>
     </div>
   )
 }

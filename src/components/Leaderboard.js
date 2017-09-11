@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid, Header, Segment } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 const Leaderboard = () => {
   return(

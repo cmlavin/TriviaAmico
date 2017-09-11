@@ -48,6 +48,7 @@ class GameContainer extends React.Component{
     this.setState({
       score: this.state.score + points
     })
+    this.props.gameScore(this.state.score)
   }
 
   render() {

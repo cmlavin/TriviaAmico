@@ -101,6 +101,15 @@ class App extends React.Component {
     }, () => console.log(this.state)))
   }
   //GameData.sendGameData
+  //only when game is over (need to check for this), send score data to the database using the ScoreData adapter
+  gameScore = (score) => {
+    debugger
+    //use this method to call ScoreData.sendScore(score)
+  }
+  //ScoreData.sendScore(score)
+  //.then(data => this.setState({
+//   scoreData: data
+// }))
 
   render() {
     return (
@@ -108,7 +117,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Route exact path="/" render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} />} />
-            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} /> } />
+            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} gameScore={this.gameScore}/> } />
             <Route exact path='/signup' render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Signup login={this.login} signup={this.signup} />)}/>
             <Route exact path="/login" render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Login login={this.login} />)}/>
           </div>
