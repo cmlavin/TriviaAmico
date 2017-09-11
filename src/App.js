@@ -105,14 +105,16 @@ class App extends React.Component {
   }
 
   gameStatus = (status) => {
-    debugger
+    //debugger
     let gameStatus = status
     return gameStatus
   }
   //GameData.sendGameData
   //only when game is over (need to check for this), send score data to the database using the ScoreData adapter
+
+  
   gameScore = (score) => {
-    debugger
+    //debugger
     if(this.gameStatus() === true) {
       ScoreData.sendScore(score)
       .then(data => this.setState({

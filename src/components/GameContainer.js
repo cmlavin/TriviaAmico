@@ -28,13 +28,17 @@ class GameContainer extends React.Component{
 
   checkAnswer = (event) => {
     let clicked = event.target
-    clicked.textContent === this.props.data.correct_answer ? this.handleScore() : null
+    debugger
+    let answer = clicked.textContent === this.props.data.correct_answer ? true : false
+    answer === true ? this.handleScore() : null
     this.setState({
       nextQuestion: true,
       clickedAnswer: true
     })
-    this.props.gameScore(this.state.score)
+    return answer
   }
+  // clicked.textContent === this.props.data.correct_answer ?
+  //   (clicked.style.backgroundColor = '#289323') && (this.handleScore()) : clicked.style.backgroundColor = '#FF0000'
   //clicked.style.backgroundColor = '#289323'
 
   handleNextQuestion = () => {
@@ -51,7 +55,7 @@ class GameContainer extends React.Component{
     let points = difficulty === "easy" ? 400 : difficulty === "medium" ? 800 : 1200
     this.setState({
       score: this.state.score + points
-    })
+    }, this.props.gameScore(this.state.score))
   }
 
   render() {
