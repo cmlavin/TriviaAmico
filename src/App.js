@@ -87,7 +87,6 @@ class App extends React.Component {
       })
     }
   }
-//inputEmail && inputUsername && inputPassword !== '' ? "" : "error message"
 
   handleSelection = (event, data) => {
     const property = event.currentTarget.dataset.name
@@ -105,17 +104,24 @@ class App extends React.Component {
   }
 
   gameStatus = (status) => {
-    //debugger
-    let gameStatus = status
-    return gameStatus
+    debugger
+    return status
   }
-  //GameData.sendGameData
-  //only when game is over (need to check for this), send score data to the database using the ScoreData adapter
 
-  
+  // componentWillReceiveProps(nextProps) {
+  //   console.log(this.props)
+  //   console.log(nextProps)
+  //   debugger
+  // }
+
+  //send score and game data to rails backend at the same time because want to send data for score and game only
+  //after the game is over
+  //gameScore is not being called anywhere in components right now
+
   gameScore = (score) => {
-    //debugger
+    debugger
     if(this.gameStatus() === true) {
+      console.log("Game over methods are all working")
       ScoreData.sendScore(score)
       .then(data => this.setState({
         scores: data
