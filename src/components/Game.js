@@ -29,10 +29,10 @@ class Game extends React.Component {
     })
   }
 
-componentDidUpdate(prevState, prevProps) {
-  let gameOver = this.props.data.length === this.state.index ? true : false
-  this.props.gameStatus(gameOver)
-}
+  componentDidUpdate(prevState, prevProps) {
+    let gameOver = this.props.data.length === this.state.index ? true : false
+    gameOver === true ? this.props.gameData(this.state.score) : null
+  }
 
   render() {
     return(

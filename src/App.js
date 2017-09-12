@@ -103,24 +103,35 @@ class App extends React.Component {
     }, () => console.log(this.state)))
   }
 
-  gameStatus = (status) => {
-    return status
-  }
+  // gameStatus = (status) => {
+  //   return status
+  // }
 
   //send score and game data to rails backend at the same time because want to send data for score and game only
   //after the game is over
   //gameScore is not being called anywhere in components right now
 
-  gameScore = (score) => {
+  // gameScore = (score) => {
+  //   debugger
+  //   if(this.gameStatus() === true) {
+  //     console.log("Game over methods are all working")
+  //     ScoreData.sendScore(score)
+  //     .then(data => this.setState({
+  //       scores: data
+  //     }, () => console.log(this.state.scores)))
+  //   }
+  // }
+
+//change gameData to include argument for game data and call GameData.sendGameData
+  gameData = (score) => {
     debugger
-    if(this.gameStatus() === true) {
-      console.log("Game over methods are all working")
-      ScoreData.sendScore(score)
-      .then(data => this.setState({
-        scores: data
-      }, () => console.log(this.state.scores)))
-    }
+    console.log("Game over methods are all working")
+    ScoreData.sendScore(score)
+    .then(data => this.setState({
+      scores: data
+    }, () => console.log(this.state.scores)))
   }
+  // gameData = (gameInfo, score) => {
 
   render() {
     return (
@@ -128,7 +139,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Route exact path="/" render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} />} />
-            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} gameScore={this.gameScore} gameStatus={this.gameStatus}/> } />
+            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} gameData={this.gameData}/> } />
             <Route exact path='/signup' render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Signup login={this.login} signup={this.signup} />)}/>
             <Route exact path="/login" render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Login login={this.login} />)}/>
           </div>
