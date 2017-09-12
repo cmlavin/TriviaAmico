@@ -103,13 +103,15 @@ class App extends React.Component {
     }, () => console.log(this.state)))
   }
 
-//change gameData to include argument for game data and call GameData.sendGameData
   gameData = (score) => {
     debugger
-    ScoreData.sendScore(score)
-    .then(data => this.setState({
-      scores: data
-    }, () => console.log(this.state.scores)))
+    console.log("Inside gameData")
+    // ScoreData.sendScore(score)
+    // .then(data => this.setState({
+    //   scores: data
+    // }, () => console.log(this.state.scores)))
+    // let {number, category, difficulty, type} = this.state
+    // GameData.sendGameInfo(number, category, difficulty, type)
   }
 
   render() {
