@@ -5,8 +5,8 @@ import { Icon } from 'semantic-ui-react'
 const Navbar = () => {
   return(
     <div>
-      <NavLink to="/"><a><Icon name='home' size='large' />Home</a></NavLink>
-      <NavLink to="/"><a><Icon name='power' size='large' />Logout</a></NavLink>
+      <NavLink to="/"><Icon name='home' size='large' />Home</NavLink>
+      <NavLink to="/"><Icon name='power' size='large' />Logout</NavLink>
     </div>
   )
 }

@@ -27,6 +27,12 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount(){
+    if (!!localStorage.jwt) {
+      this.setState({isLoggedIn: true})
+    }
+  }
+
   login = (event) => {
     let inputUsername = event.target.elements.username.value
     let inputPassword = event.target.elements.password.value
@@ -114,15 +120,32 @@ class App extends React.Component {
     // GameData.sendGameInfo(number, category, difficulty, type)
   }
 
+  renderHomepage = () => {
+    return <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} />
+  }
+
+  renderGame = () => {
+    return (this.state.isLoggedIn === true ?
+              <Game data={this.state.data} difficulty={this.state.difficulty} gameData={this.gameData }/> : <Redirect to="/"/>)
+  }
+
+  renderSignup = () => {
+    return (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Signup login={this.login} signup={this.signup} />)
+  }
+
+  renderLogin = () => {
+    return (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Login login={this.login} />)
+  }
+
   render() {
     return (
       <div className="App">
         <Router>
           <div>
-            <Route exact path="/" render={ () => <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} />} />
-            <Route exact path='/game' render={ () => <Game data={this.state.data} difficulty={this.state.difficulty} gameData={this.gameData}/> } />
-            <Route exact path='/signup' render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Signup login={this.login} signup={this.signup} />)}/>
-            <Route exact path="/login" render={ () => (this.state.isLoggedIn === true ? <Redirect to="/" /> : <Login login={this.login} />)}/>
+            <Route exact path="/" render={this.renderHomepage} />
+            <Route exact path='/game' render={this.renderGame} />
+            <Route exact path='/signup' render={this.renderSignup}/>
+            <Route exact path="/login" render={this.renderLogin}/>
           </div>
         </Router>
       </div>
