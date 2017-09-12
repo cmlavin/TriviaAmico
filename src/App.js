@@ -104,15 +104,8 @@ class App extends React.Component {
   }
 
   gameStatus = (status) => {
-    debugger
     return status
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   console.log(this.props)
-  //   console.log(nextProps)
-  //   debugger
-  // }
 
   //send score and game data to rails backend at the same time because want to send data for score and game only
   //after the game is over

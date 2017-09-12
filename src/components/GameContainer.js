@@ -40,12 +40,7 @@ class GameContainer extends React.Component{
       clickedAnswer: false
     })
     this.props.incrementIndex()
-    //this.props.gameOver()
   }
-
-
-  //send gamescore up after setting async state of score
-  //this.props.gameScore(this.state.score)
 
   render() {
     return(
