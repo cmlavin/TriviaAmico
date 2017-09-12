@@ -23,8 +23,3 @@ const Signup = (props) => {
 }
 
 export default Signup
-
-//<Form.Input fluid icon='lock' iconPosition='left' placeholder='Confirm Password' type='password' />
-//#AEEBE9; blue or #F7F1A5; yellow
-//#AED8EB; blue or #E9EBAE yellow
-//use a9c4df

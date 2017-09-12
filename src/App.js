@@ -103,35 +103,14 @@ class App extends React.Component {
     }, () => console.log(this.state)))
   }
 
-  // gameStatus = (status) => {
-  //   return status
-  // }
-
-  //send score and game data to rails backend at the same time because want to send data for score and game only
-  //after the game is over
-  //gameScore is not being called anywhere in components right now
-
-  // gameScore = (score) => {
-  //   debugger
-  //   if(this.gameStatus() === true) {
-  //     console.log("Game over methods are all working")
-  //     ScoreData.sendScore(score)
-  //     .then(data => this.setState({
-  //       scores: data
-  //     }, () => console.log(this.state.scores)))
-  //   }
-  // }
-
 //change gameData to include argument for game data and call GameData.sendGameData
   gameData = (score) => {
     debugger
-    console.log("Game over methods are all working")
     ScoreData.sendScore(score)
     .then(data => this.setState({
       scores: data
     }, () => console.log(this.state.scores)))
   }
-  // gameData = (gameInfo, score) => {
 
   render() {
     return (
