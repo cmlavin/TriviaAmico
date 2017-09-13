@@ -4,7 +4,7 @@ import { Button, Grid, Header, Segment, Form } from 'semantic-ui-react'
 const Login = (props) => {
   return(
     <div>
-      <div className="gameTitle">Trivia Amico</div>
+      <div id="#loginTitle" className="gameTitle">Trivia Amico</div>
       <Grid id="loginFormGrid" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
         <Header id="loginFormHeader" textAlign='center'>Login to your account</Header>

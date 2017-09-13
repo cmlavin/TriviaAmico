@@ -31,6 +31,8 @@
   width:100%;
 }
 
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -56,14 +58,78 @@ body {
   font-family: 'Kurale';
   color: black;
   background-color: #A9C4DF;
+  margin-top:20px;
+}
+
+#navbarHomeButton {
+  top: 2px;
+  left: 325px;
+  font-family: 'Kurale';
+  color: black;
+  background: #A9C4DF;
+}
+
+#startGameForm {
+  margin-top:20px;
+}
+
+.ui.form .inline.field>:first-child, .ui.form .inline.fields .field>:first-child {
+  margin-bottom:10px;
+}
+
+.form-select-container {
+  margin-bottom:10px;
+}
+
+.form-select-container label {
+  font-size:20px;
+  width:400px;
+}
+
+.inline {
+  display:inline-block;
+}
+
+.inline-inner {
+  width:200px;
+  font-size:20px;
+}
+
+.answer {
+  width:45%;
+  float:left;
+  margin-bottom:20px;
+}
+
+.answer-btn {
+  width:80%;
+}
+
+#navbarLogoutButton {
+  top: 2px;
+  left: 325px;
+  font-family: 'Kurale';
+  color: black;
+  background: #A9C4DF;
 }
 
 .gameTitle {
   font-family: 'Parisienne';
   font-size: 120px;
   margin: auto;
-  margin-top: 70px;
   font-weight: bold;
+}
+
+#homepageTitle, .gameTitle {
+  margin-top: 30px;
+}
+
+#signupTitle, .gameTitle {
+  margin-top: 70px;
+}
+
+#loginTitle, .gameTitle {
+  margin-top: 70px;
 }
 
 #signupFormGrid {
@@ -131,6 +197,9 @@ body {
   border-width: medium;
   border-color: black;
   border-radius: 25px;
+  position:absolute;
+  top:30%;
+  left:0;
 }
 
 #scoreContainer {
@@ -138,7 +207,6 @@ body {
   border-width: medium;
   border-color: black;
   border-radius: 25px;
-  width: 150px;
 }
 
 #scoreText {
@@ -151,7 +219,13 @@ body {
   border-width: medium;
   border-color: black;
   border-radius: 25px;
-  width: 275px;
+}
+
+#timerContainer,
+#scoreContainer {
+  display:inline-block;
+  width:40%;
+  margin-top:80px;
 }
 
 #timerText {

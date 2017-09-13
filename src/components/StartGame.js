@@ -12,20 +12,28 @@ import questionTypes from '../options/questionTypes'
         <Form>
           <Form.Field inline>
           <div className="form-select-container">
-            <label><h3 className="formLabel">Category</h3></label>
-            <Select className="selections" options={categories} onChange={props.handleSelection}/>
+            <div className="inline">
+              <div className="inline-inner">Category</div>
+            </div>
+            <div className="inline"><Select className="selections" options={categories} onChange={props.handleSelection}/></div>
           </div>
           <div className="form-select-container">
-            <label><h3 className="formLabel">Difficulty</h3></label>
-            <Select className="selections" options={difficulties} onChange={props.handleSelection}/>
+            <div className="inline">
+              <div className="inline-inner">  Difficulty </div>
+            </div>
+            <div className="inline"><Select className="selections" options={difficulties} onChange={props.handleSelection}/></div>
           </div>
           <div className="form-select-container">
-            <label><h3 className="formLabel">Number of questions</h3></label>
-            <Select className="selections" options={numQuestions} onChange={props.handleSelection}/>
+            <div className="inline">
+              <div className="inline-inner">  Number of questions </div>
+            </div>
+            <div className="inline"><Select className="selections" options={numQuestions} onChange={props.handleSelection}/></div>
           </div>
           <div className="form-select-container">
-            <label><h3 className="formLabel">Type of questions</h3></label>
-            <Select className="selections" options={questionTypes} onChange={props.handleSelection}/>
+            <div className="inline">
+              <div className="inline-inner"> Type of questions </div>
+            </div>
+            <div className="inline"><Select className="selections" options={questionTypes} onChange={props.handleSelection}/></div>
           </div>
             <Link to='/game'><Button id="startGameButton" onClick={props.handleSubmit}>Start Game</Button></Link>
           </Form.Field>

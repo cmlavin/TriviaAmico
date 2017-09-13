@@ -4,7 +4,7 @@ import { Button, Grid, Header, Segment, Form } from 'semantic-ui-react'
 const Signup = (props) => {
   return(
     <div>
-      <div className="gameTitle">Trivia Amico</div>
+      <div id="signupTitle" className="gameTitle">Trivia Amico</div>
       <Grid id="signupFormGrid" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
         <Header id="signupFormHeader" textAlign='center'>Signup for an account</Header>

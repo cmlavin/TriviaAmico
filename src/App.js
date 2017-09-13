@@ -25,6 +25,7 @@ class App extends React.Component {
       scores: [],
       games: {}
     }
+    //this.logout = this.logout.bind(this)
   }
 
   componentDidMount(){
@@ -55,8 +56,9 @@ class App extends React.Component {
     }
   }
 
-  logout() {
+  logout = () => {
     Auth.logout()
+    //debugger
     this.setState({
       isLoggedIn: false
     })
@@ -121,7 +123,8 @@ class App extends React.Component {
   }
 
   renderHomepage = () => {
-    return <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection} loggedIn={this.state.isLoggedIn} />
+    return <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}
+              loggedIn={this.state.isLoggedIn} logout={this.logout}/>
   }
 
   renderGame = () => {

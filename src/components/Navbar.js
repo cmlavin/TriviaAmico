@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
-import { Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
-const Navbar = () => {
+const Navbar = (props) => {
   return(
     <div>
-      <NavLink to="/"><Icon name='home' size='large' />Home</NavLink>
-      <NavLink to="/"><Icon name='power' size='large' />Logout</NavLink>
+      <Link to="/"><Button id="navbarHomeButton" content='Home' icon='home' labelPosition='left' /></Link>
+      <Link to="/"><Button id="navbarLogoutButton" content='Logout' icon='power' labelPosition='left' onClick={props.logout}/></Link>
     </div>
   )
 }
