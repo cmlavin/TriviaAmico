@@ -35,7 +35,7 @@ import questionTypes from '../options/questionTypes'
             </div>
             <div className="inline"><Select className="selections" options={questionTypes} onChange={props.handleSelection}/></div>
           </div>
-            <Link to='/game'><Button id="startGameButton" onClick={props.handleSubmit}>Start Game</Button></Link>
+            <Link to='/game'><Button id="startGameButton" size="huge" onClick={props.handleSubmit}>Start Game</Button></Link>
           </Form.Field>
         </Form>
       </div>

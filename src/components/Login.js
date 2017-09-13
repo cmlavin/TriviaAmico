@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button, Grid, Header, Segment, Form } from 'semantic-ui-react'
+import { Button, Grid, Header, Segment, Form, Icon } from 'semantic-ui-react'
 
 const Login = (props) => {
   return(
     <div>
-      <div id="#loginTitle" className="gameTitle">Trivia Amico</div>
+      <div id="#loginTitle" className="gameTitle"><Icon name='puzzle' flipped='horizontally' size="small" />Trivia Amico</div>
       <Grid id="loginFormGrid" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
         <Header id="loginFormHeader" textAlign='center'>Login to your account</Header>

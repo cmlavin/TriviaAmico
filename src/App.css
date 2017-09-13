@@ -31,7 +31,9 @@
   width:100%;
 }
 
-
+.ui.form {
+  margin-top: 100px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -44,16 +46,6 @@ body {
   background-attachment:fixed;
 }
 
-.formLabel {
-  font-family: 'Poiret One';
-  font-size: 30px;
-}
-
-.selections {
-  font-family: 'Poiret One';
-  font-size: 20px;
-}
-
 #startGameButton {
   font-family: 'Kurale';
   color: black;
@@ -61,10 +53,9 @@ body {
   margin-top:20px;
 }
 
-#navbarHomeButton {
-  top: 2px;
-  left: 325px;
+#navbarHomeButton, #navbarLogoutButton {
   font-family: 'Kurale';
+  font-size: 15px;
   color: black;
   background: #A9C4DF;
 }
@@ -82,17 +73,19 @@ body {
 }
 
 .form-select-container label {
-  font-size:20px;
   width:400px;
 }
 
 .inline {
   display:inline-block;
+  font-family: 'Kurale';
+  font-size: 20px;
 }
 
 .inline-inner {
-  width:200px;
-  font-size:20px;
+  width:325px;
+  font-size:30px;
+  font-family: 'Kurale';
 }
 
 .answer {
@@ -105,12 +98,10 @@ body {
   width:80%;
 }
 
-#navbarLogoutButton {
+#navbarButtonContainer {
+  position: absolute;
   top: 2px;
-  left: 325px;
-  font-family: 'Kurale';
-  color: black;
-  background: #A9C4DF;
+  right: 2px;
 }
 
 .gameTitle {
@@ -121,7 +112,7 @@ body {
 }
 
 #homepageTitle, .gameTitle {
-  margin-top: 30px;
+  margin-top: 65px;
 }
 
 #signupTitle, .gameTitle {

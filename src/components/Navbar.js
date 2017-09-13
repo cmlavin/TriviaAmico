@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react'
 
 const Navbar = (props) => {
   return(
-    <div>
+    <div id="navbarButtonContainer">
       <Link to="/"><Button id="navbarHomeButton" content='Home' icon='home' labelPosition='left' /></Link>
       <Link to="/"><Button id="navbarLogoutButton" content='Logout' icon='power' labelPosition='left' onClick={props.logout}/></Link>
     </div>
