@@ -20,7 +20,7 @@ class Auth {
       method: 'GET',
       headers: {'content-type': 'application/json',
                 'accept': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`},
     })
     .then(resp => {return resp.json()})
   }

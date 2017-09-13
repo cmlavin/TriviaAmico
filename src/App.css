@@ -137,9 +137,20 @@ body {
   font-size: 20px;
   color: black;
   background-color: #A9C4DF;
+
 }
 
-#loginButton:hover {
+.ui.button  {
+  border-style:outset;
+  border-color:buttonface;
+  border-width:2px;
+}
+
+#loginButton:hover,
+#signupButton:hover,
+#navbarHomeButton:hover,
+#navbarLogoutButton:hover,
+#startGameButton:hover {
   background: rgba(169, 196, 223, 0.8);
 }
 
@@ -162,6 +173,10 @@ body {
   font-size: 30px;
 }
 
+#questionText {
+  font-family: 'Kurale';
+  font-size: 40px;
+}
 
 #answerButton {
   font-family: 'Kurale';
@@ -187,6 +202,14 @@ body {
   position:absolute;
   top:30%;
   left:0;
+}
+
+#gameContainer-container {
+  margin-top: 100px;
+}
+
+#answersContainer-container {
+  margin-top: 80px;
 }
 
 #scoreContainer {

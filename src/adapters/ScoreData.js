@@ -1,9 +1,13 @@
 class ScoreData {
 
-  static sendScore(scoreData) {
-    return fetch('http://localhost:3000/api/v1/scores#create', {
+  static sendScore(score) {
+    debugger
+    return fetch('http://localhost:3000/api/v1/scores', {
       method: 'POST',
-      body: scoreData
+      headers: {'content-type': 'application/json',
+                'accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`},
+      body: JSON.stringify(score)
     })
     .then(resp => {return resp.json()})
   }

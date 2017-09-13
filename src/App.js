@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import OpenTriviaDB from './adapters/OpenTriviaDB'
 import Homepage from './components/Homepage'
 import Game from './components/Game'
-import UserDashboard from './components/UserDashboard'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import Auth from './services/Auth'
@@ -25,12 +24,15 @@ class App extends React.Component {
       scores: [],
       games: {}
     }
-    //this.logout = this.logout.bind(this)
   }
 
   componentDidMount(){
     if (!!localStorage.jwt) {
-      this.setState({isLoggedIn: true})
+      this.setState({
+        isLoggedIn: true,
+        jwt:localStorage.jwt
+      })
+      this.currentUser()
     }
   }
 
@@ -44,6 +46,7 @@ class App extends React.Component {
       Auth.login(formData)
       .then(data => {
         console.log(data)
+        debugger
         if (!data.error) {
           this.setState({
             jwt: data.jwt,
@@ -58,9 +61,10 @@ class App extends React.Component {
 
   logout = () => {
     Auth.logout()
-    //debugger
     this.setState({
-      isLoggedIn: false
+      isLoggedIn: false,
+      user:{},
+      jwt: ""
     })
   }
 
@@ -114,12 +118,22 @@ class App extends React.Component {
   gameData = (score) => {
     debugger
     console.log("Inside gameData")
-    // ScoreData.sendScore(score)
-    // .then(data => this.setState({
-    //   scores: data
-    // }, () => console.log(this.state.scores)))
-    // let {number, category, difficulty, type} = this.state
-    // GameData.sendGameInfo(number, category, difficulty, type)
+    let {number, category, difficulty} = this.state
+    let scoreHash = {
+      score: {
+        user_id: this.state.user.id,
+        score: score,
+        game_attributes:{
+          category: category,
+          difficulty: difficulty,
+          num_questions: number
+        }
+      }
+    }
+    ScoreData.sendScore(scoreHash)
+    .then(data => this.setState({
+      scores: data
+    }, () => console.log(this.state.scores)))
   }
 
   renderHomepage = () => {
