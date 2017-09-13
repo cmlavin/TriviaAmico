@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button, Grid, Header, Segment } from 'semantic-ui-react'
 
 const LoginContainer = () => {
-  const dimensions = {width: 275, height: 275}
+  const dimensions = {width: 375, height: 375}
   return(
     <div>
       <Grid id="loginContainerGrid">
