@@ -17,16 +17,16 @@ class Timer extends React.Component {
     }, this.startTimer())
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-    //debugger
-    // if (nextProps.clickedAnswer === true) {
-    //   this.stopTimer()
-    // }
-    // else if (nextProps.clickedNext === true) {
-    //   this.resetTimer()
-    // }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log(nextProps)
+  //   //debugger
+  //   // if (nextProps.clickedAnswer === true) {
+  //   //   this.stopTimer()
+  //   // }
+  //   // else if (nextProps.clickedNext === true) {
+  //   //   this.resetTimer()
+  //   // }
+  // }
 
   startTimer = () => {
     if (this.timer === 0) {

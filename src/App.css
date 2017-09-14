@@ -197,11 +197,12 @@ body {
 
 #questionText {
   font-family: 'Kurale';
-  font-size: 40px;
+  font-size: 45px;
 }
 
 #answerButton {
   font-family: 'Kurale';
+  font-size: 20px;
   color: black;
   border-style: solid;
   border-width: medium;
@@ -215,6 +216,7 @@ body {
 
 #nextQuestionButton {
   font-family: 'Kurale';
+  font-size: 20px;
   color: black;
   background-color: #A9C4DF;
   border-style: solid;
@@ -225,7 +227,7 @@ body {
 }
 
 #gameContainer-container {
-  margin-top: 100px;
+  margin-top: 8%;
 }
 
 #answersContainer-container {
@@ -242,7 +244,7 @@ body {
 
 #scoreText {
   font-family: 'Niconne';
-  font-size: 30px;
+  font-size: 35px;
 }
 
 .score-timer-container {
@@ -269,5 +271,16 @@ body {
 
 #timerText {
   font-family: 'Niconne';
-  font-size: 30px;
+  font-size: 35px;
+}
+
+#gameLoading,
+#gameOverText {
+  font-family: 'Niconne';
+  font-size: 75px;
+  margin-top: 10%;
+}
+
+#loaderGraphic {
+  margin-top: 6%;
 }

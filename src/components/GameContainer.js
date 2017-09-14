@@ -32,8 +32,7 @@ class GameContainer extends React.Component{
     this.setState({
       nextQuestion: true,
       clickedAnswer: true
-    }, this.props.handleTimer(this.state.clickedAnswer, this.state.nextQuestion))
-    debugger
+    })
     return answer
   }
 
@@ -41,8 +40,7 @@ class GameContainer extends React.Component{
     this.setState({
       nextQuestion: false,
       clickedAnswer: false
-    }, this.props.handleTimer(this.state.clickedAnswer, this.state.nextQuestion))
-    debugger
+    })
     this.props.incrementIndex()
   }
 
