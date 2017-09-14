@@ -27,6 +27,14 @@
   text-align:left;
 }
 
+.ui.form .field:last-child, .ui.form .fields:last-child .field {
+    margin-bottom: 0;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+    border-radius: 25px;
+}
+
 .form-select-container {
   width:100%;
 }
@@ -52,10 +60,13 @@ body {
 
 .ui.form .inline.field>:first-child, .ui.form .inline.fields .field>:first-child {
   margin-bottom:10px;
+
 }
 
 .form-select-container {
   margin-bottom:10px;
+  padding-top: 20px;
+  padding-right: 20px;
 }
 
 .form-select-container label {
@@ -116,6 +127,7 @@ body {
 #signupFormHeader {
   font-family: 'Kurale';
   font-size: 30px;
+  margin-bottom: -15%;
 }
 
 #signupButton, #loginButton {
@@ -144,6 +156,7 @@ body {
   color: black;
   background-color: #A9C4DF;
   margin-top:20px;
+  margin-bottom: 10px;
 }
 
 #navbarHomeButton, #navbarLogoutButton {
@@ -157,23 +170,29 @@ body {
   background: rgba(169, 196, 223, 0.8);
 }
 
-#loginContainerGrid {
-  margin-top: 125px;
-  margin-left: 300px;
+.ui.circular.segment {
+  display:block;
+  margin:auto;
+}
+
+#loginContainerDiv {
+  margin-top: 5%;
 }
 
 #loginContainerHeader {
   font-family: 'Kurale';
   font-size: 35px;
+  margin-top:35%;
 }
 
 #loginFormGrid {
-  margin-top: 100px;
+  margin-top: 5%;
 }
 
 #loginFormHeader {
   font-family: 'Kurale';
   font-size: 30px;
+  margin-bottom: -15%;
 }
 
 #questionText {

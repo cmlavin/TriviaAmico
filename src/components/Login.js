@@ -5,7 +5,7 @@ const Login = (props) => {
   return(
     <div>
       <div id="#loginTitle" className="gameTitle"><Icon name='puzzle' flipped='horizontally' size="small" />Trivia Amico</div>
-      <Grid id="loginFormGrid" textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+      <Grid id="loginFormGrid" textAlign='center' verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
         <Header id="loginFormHeader" textAlign='center'>Login to your account</Header>
         <Form size='large' onSubmit={props.login}>

@@ -10,6 +10,8 @@ class GameContainer extends React.Component{
       nextQuestion: false,
       clickedAnswer: false
     }
+    this.handleNextQuestion = this.handleNextQuestion.bind(this)
+    this.checkAnswer = this.checkAnswer.bind(this)
   }
 
   combineAnswers = (array, element) => {
@@ -30,7 +32,8 @@ class GameContainer extends React.Component{
     this.setState({
       nextQuestion: true,
       clickedAnswer: true
-    })
+    }, this.props.handleTimer(this.state.clickedAnswer, this.state.nextQuestion))
+    debugger
     return answer
   }
 
@@ -38,9 +41,15 @@ class GameContainer extends React.Component{
     this.setState({
       nextQuestion: false,
       clickedAnswer: false
-    })
+    }, this.props.handleTimer(this.state.clickedAnswer, this.state.nextQuestion))
+    debugger
     this.props.incrementIndex()
   }
+
+  //render timer component here, pass nextQuestion and clickedAnswer states to timer
+  //if nextQuestion === false (but initial state is false)
+  //if clickedAnswer === true, stop timer
+  //if handleNextQuestion is called, then timer needs to be reset
 
   render() {
     return(
@@ -51,7 +60,7 @@ class GameContainer extends React.Component{
         <NextQuestion nextQuestion={this.state.nextQuestion} handleNextQuestion={this.handleNextQuestion}/>
       </div>
     )
-  } 
+  }
 }
 
 export default GameContainer
