@@ -29,17 +29,15 @@ class Game extends React.Component {
     })
   }
 
-  handleTimer = (clicked, next) => {
-    debugger
-    let clickedAnswer = clicked
-    let clickedNext = next
-    return clickedAnswer
-    return clickedNext
-  }
-
   componentDidUpdate(prevState, prevProps) {
     let gameOver = this.props.data.length === this.state.index ? true : false
     gameOver === true ? this.props.gameData(this.state.score) : null
+  }
+
+  timerAtZero = () => {
+    this.setState({
+      index: this.props.data.length
+    })
   }
 
   gameOver = () =>{
@@ -58,12 +56,11 @@ class Game extends React.Component {
       <div>
         <GameContainer data={this.props.data[this.state.index]}
           incrementIndex={this.incrementIndex}
-          handleTimer={this.handleTimer}
           handleScore={this.handleScore}/>
 
         <div className="score-timer-container">
           <Score score={this.state.score}/>
-          <Timer handleTimer={this.handleTimer}/>
+          <Timer timerAtZero={this.timerAtZero} numberOfQuestions={this.props.data.length}/>
         </div>
       </div>
     )
