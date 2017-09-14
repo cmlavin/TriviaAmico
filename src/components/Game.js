@@ -40,8 +40,8 @@ class Game extends React.Component {
         <Navbar />
         {this.props.data.length === 0 ? <Loading /> : this.props.data.length === this.state.index ?
           <GameOver gameScore={this.props.gameScore}/> : <GameContainer data={this.props.data[this.state.index]} incrementIndex={this.incrementIndex} handleScore={this.handleScore}/>}
-        <Score score={this.state.score}/>
-        <Timer />
+        <div className="score-timer-container"><Score score={this.state.score}/>
+        <Timer /></div>
       </div>
     )
   }

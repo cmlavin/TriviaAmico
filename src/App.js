@@ -46,7 +46,6 @@ class App extends React.Component {
       Auth.login(formData)
       .then(data => {
         console.log(data)
-        debugger
         if (!data.error) {
           this.setState({
             jwt: data.jwt,
@@ -116,7 +115,6 @@ class App extends React.Component {
   }
 
   gameData = (score) => {
-    debugger
     console.log("Inside gameData")
     let {number, category, difficulty} = this.state
     let scoreHash = {
@@ -131,10 +129,11 @@ class App extends React.Component {
       }
     }
     ScoreData.sendScore(scoreHash)
-    .then(data => this.setState({
-      scores: data
-    }, () => console.log(this.state.scores)))
+
   }
+  //.then(data => this.setState({
+//    scores: data
+//  }, () => console.log(this.state.scores)))
 
   renderHomepage = () => {
     return <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}

@@ -51,7 +51,7 @@ class GameContainer extends React.Component{
         <NextQuestion nextQuestion={this.state.nextQuestion} handleNextQuestion={this.handleNextQuestion}/>
       </div>
     )
-  }
+  } 
 }
 
 export default GameContainer

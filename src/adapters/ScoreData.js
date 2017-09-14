@@ -1,7 +1,6 @@
 class ScoreData {
 
   static sendScore(score) {
-    debugger
     return fetch('http://localhost:3000/api/v1/scores', {
       method: 'POST',
       headers: {'content-type': 'application/json',
