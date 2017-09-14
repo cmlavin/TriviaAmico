@@ -1,31 +1,20 @@
 import React from 'react';
 
-//Timer is not rerendering upon clicking on an answer button
+// Timer is not rerendering upon clicking on an answer button
 class Timer extends React.Component {
   constructor() {
     super();
     this.timer = 0;
     this.state = {
-      time: {},
-      timeAlloted: 90
+      timeAlloted: 30,
+      timerRunning: false
     }
   }
 
   componentDidMount() {
-    let timeLeft = this.displayTime(this.state.timeAlloted)
     this.setState({
-      time: timeLeft
+      timerRunning: true
     }, this.startTimer())
-  }
-
-  displayTime = (seconds) => {
-    let min = Math.floor((seconds % 3600) / 60);
-    let sec = Math.ceil((seconds % 3600) % 60);
-    let convertedTime = {
-      "min": min,
-      "sec": sec
-    };
-      return convertedTime;
   }
 
   startTimer = () => {
@@ -34,10 +23,17 @@ class Timer extends React.Component {
     }
   }
 
+  stopTimer = () => {
+    this.state.timerRunning === true ? this.setState({ timerRunning: false }) : null
+  }
+
+  resetTimer = () => {
+    this.setState({timeAlloted: 30})
+  }
+
   handleCounter = () => {
     let counter = this.state.timeAlloted - 1;
     this.setState({
-      time: this.displayTime(counter),
       timeAlloted: counter
     })
     if (counter === 0) {
@@ -52,7 +48,7 @@ class Timer extends React.Component {
   render() {
     return(
       <div id="timerContainer">
-        <h3 id="timerText">Time left: {this.state.time.min} min {this.state.time.sec} sec</h3>
+        <h3 id="timerText">Time left: {this.state.timeAlloted} sec</h3>
       </div>
     )
   }
