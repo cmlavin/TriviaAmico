@@ -6,13 +6,16 @@ class Timer extends React.Component {
     super();
     this.timer = 0;
     this.state = {
-      timeAlloted: 5,
+      time: {},
+      timeAlloted: 90,
       timerRunning: false
     }
   }
 
   componentDidMount() {
+    let timeLeft = this.displayTime(this.state.timeAlloted)
     this.setState({
+      time: timeLeft,
       timerRunning: true
     }, this.startTimer())
   }
@@ -27,6 +30,16 @@ class Timer extends React.Component {
   //   //   this.resetTimer()
   //   // }
   // }
+
+  displayTime = (seconds) => {
+    let min = Math.floor((seconds % 3600) / 60);
+    let sec = Math.ceil((seconds % 3600) % 60);
+    let convertedTime = {
+      "min": min,
+      "sec": sec
+    };
+      return convertedTime;
+  }
 
   startTimer = () => {
     if (this.timer === 0) {
@@ -49,29 +62,29 @@ class Timer extends React.Component {
   handleCounter = () => {
     let counter = this.state.timeAlloted - 1;
     this.setState({
+      time: this.displayTime(counter),
       timeAlloted: counter
     })
     if (counter === 0) {
       clearInterval(this.timer);
     }
-  }
+   }
 
   componentWillUnmount() {
     clearInterval(this.timer)
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if (this.state.timeAlloted === 0) {
-      this.setState({timerRunning:false}, )
-    }
-  }
+  // componentDidUpdate(prevProps, prevState){
+  //   if (this.state.timeAlloted === 0) {
+  //     this.setState({timerRunning:false}, )
+  //   }
+  // }
   //put callback after setstate to terminate game when timer reaches 0
 
   render() {
-
     return(
       <div id="timerContainer">
-        <h3 id="timerText">Time left: {this.state.timeAlloted} sec</h3>
+        <h3 id="timerText">Time left: {this.state.time.min} min {this.state.time.sec} sec</h3>
       </div>
     )
   }

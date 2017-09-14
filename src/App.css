@@ -147,8 +147,9 @@ body {
 #loginButton:hover,
 #signupButton:hover,
 #navbarHomeButton:hover,
-#navbarLogoutButton:hover {
-  background: rgba(169, 196, 223, 0.8);
+#navbarLogoutButton:hover,
+#startGameButton:hover {
+  background-color: #C6D8EA;
 }
 
 #startGameButton {
@@ -164,10 +165,6 @@ body {
   font-size: 15px;
   color: black;
   background: #A9C4DF;
-}
-
-#startGameButton:hover {
-  background: rgba(169, 196, 223, 0.8);
 }
 
 .ui.circular.segment {
