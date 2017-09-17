@@ -1,7 +1,7 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-  -[Gameplay](#gameplay)
+  - [Gameplay](#gameplay)
 - [Technologies](#technologies)
 - [Installation](#installation)
   - [Backend](#backend)
