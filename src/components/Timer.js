@@ -6,7 +6,7 @@ class Timer extends React.Component {
     this.timer = 0;
     this.state = {
       time: {},
-      timeAlloted: 7*props.numberOfQuestions,
+      timeAlloted: (10*props.numberOfQuestions),
       timerRunning: false
     }
   }
