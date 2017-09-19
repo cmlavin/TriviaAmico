@@ -22,7 +22,13 @@ class Answer extends React.Component {
   render() {
     return(
       <div className="answer">
-        <Button className="answer-btn" id="answerButton" onClick={this.handleAnswer} style={{backgroundColor: this.state.color}} disabled={this.props.clickedAnswer}>{this.props.answer}</Button>
+        <Button className="answer-btn"
+          id="answerButton"
+          onClick={this.handleAnswer}
+          style={{backgroundColor: this.state.color}}
+          disabled={this.props.clickedAnswer}>
+          {this.props.answer}
+        </Button>
       </div>
     )
   }

@@ -23,7 +23,10 @@ class AnswersContainer extends React.Component {
     return(
       <div id="answersContainer-container">
         {this.shuffle(this.props.answers).map( (answer, i) =>
-          <Answer answer={answer} key={i} checkAnswer={this.props.checkAnswer} clickedAnswer={this.props.clickedAnswer}/>)}
+          <Answer answer={answer}
+            key={i}
+            checkAnswer={this.props.checkAnswer}
+            clickedAnswer={this.props.clickedAnswer}/>)}
       </div>
     )
   }

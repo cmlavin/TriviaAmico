@@ -57,7 +57,6 @@ class Game extends React.Component {
         <GameContainer data={this.props.data[this.state.index]}
           incrementIndex={this.incrementIndex}
           handleScore={this.handleScore}/>
-
         <div className="score-timer-container">
           <Score score={this.state.score}/>
           <Timer timerAtZero={this.timerAtZero} numberOfQuestions={this.props.data.length}/>

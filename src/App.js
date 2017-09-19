@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import OpenTriviaDB from './adapters/OpenTriviaDB'
 import Homepage from './components/Homepage'
 import Game from './components/Game'
@@ -7,7 +7,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Auth from './services/Auth'
 import ScoreData from './adapters/ScoreData'
-import './App.css';
+import './App.css'
 
 class App extends React.Component {
   constructor() {
@@ -165,8 +165,8 @@ class App extends React.Component {
           </div>
         </Router>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
