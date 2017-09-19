@@ -18,7 +18,9 @@ class Auth {
   static currentUser() {
     return fetch('http://localhost:3000/api/v1/me', {
       method: 'GET',
-      headers: {'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
+      headers: {'content-type': 'application/json',
+                  'accept': 'application/json',
+                  'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
     })
     .then(resp => {return resp.json()})
   }
