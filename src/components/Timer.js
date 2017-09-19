@@ -20,6 +20,7 @@ class Timer extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     this.setState({
       timeAlloted: (10 * nextProps.numberOfQuestions)
     })

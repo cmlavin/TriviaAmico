@@ -261,9 +261,9 @@ body {
 #scoreContainer {
   display:inline-block;
   width:40%;
-
   margin:auto;
   margin-top:80px;
+  background-color: #FBE993;
 }
 
 #timerText {
