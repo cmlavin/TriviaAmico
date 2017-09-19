@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
 
@@ -11,6 +11,6 @@ const Navbar = (props) => {
   )
 }
 
-export default Navbar;
+export default Navbar
 
 //<NavLink to="/me"><h3><Icon name='dashboard' />User Dashboard</h3></NavLink>

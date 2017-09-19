@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Navbar from './Navbar'
 import GameContainer from './GameContainer'
 import Loading from './Loading'
@@ -82,4 +82,4 @@ class Game extends React.Component {
   }
 }
 
-export default Game;
+export default Game

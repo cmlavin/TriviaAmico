@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 class Timer extends React.Component {
   constructor(props) {
-    super(props);
-    this.timer = 0;
+    super(props)
+    this.timer = 0
     this.state = {
       time: {},
       timeAlloted: (10*props.numberOfQuestions),
@@ -22,18 +22,18 @@ class Timer extends React.Component {
   }
 
   displayTime = (seconds) => {
-    let min = Math.floor((seconds % 3600) / 60);
-    let sec = Math.ceil((seconds % 3600) % 60);
+    let min = Math.floor((seconds % 3600) / 60)
+    let sec = Math.ceil((seconds % 3600) % 60)
     let convertedTime = {
       "min": min,
       "sec": sec
-    };
-      return convertedTime;
+    }
+      return convertedTime
   }
 
   startTimer = () => {
     if (this.timer === 0) {
-      this.timer = setInterval(this.handleCounter, 1000);
+      this.timer = setInterval(this.handleCounter, 1000)
     }
   }
 
@@ -46,13 +46,13 @@ class Timer extends React.Component {
   }
 
   handleCounter = () => {
-    let counter = this.state.timeAlloted - 1;
+    let counter = this.state.timeAlloted - 1
     this.setState({
       time: this.displayTime(counter),
       timeAlloted: counter
     })
     if (counter === 0) {
-      clearInterval(this.timer);
+      clearInterval(this.timer)
     }
    }
 
@@ -75,4 +75,4 @@ class Timer extends React.Component {
   }
 }
 
-export default Timer;
+export default Timer

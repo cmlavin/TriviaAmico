@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Form, Select, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import categories from '../options/categories'
@@ -42,4 +42,4 @@ import questionTypes from '../options/questionTypes'
     )
 }
 
-export default StartGame;
+export default StartGame

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Score = (props) => {
   return(
@@ -8,4 +8,4 @@ const Score = (props) => {
   )
 }
 
-export default Score;
+export default Score

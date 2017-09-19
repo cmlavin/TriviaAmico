@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Question from './Question'
 import AnswersContainer from './AnswersContainer'
 import NextQuestion from './NextQuestion'

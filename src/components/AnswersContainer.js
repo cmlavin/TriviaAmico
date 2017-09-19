@@ -7,12 +7,12 @@ class AnswersContainer extends React.Component {
     let t
     let i
     while (m) {
-      i = Math.floor(Math.random() * m--);
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
+      i = Math.floor(Math.random() * m--)
+      t = array[m]
+      array[m] = array[i]
+      array[i] = t
     }
-    return array;
+    return array
   }
 
   shouldComponentUpdate(nextProps, nextState) {

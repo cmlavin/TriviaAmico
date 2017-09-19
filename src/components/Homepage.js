@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import StartGame from './StartGame'
 import LoginContainer from './LoginContainer'
 import Navbar from './Navbar'
@@ -14,4 +14,4 @@ const Homepage = (props) => {
   )
 }
 
-export default Homepage;
+export default Homepage
