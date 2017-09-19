@@ -31,6 +31,7 @@ class Game extends React.Component {
 
   componentDidUpdate(prevState, prevProps) {
     let gameOver = this.props.data.length === this.state.index ? true : false
+    // eslint-disable-next-line
     gameOver === true ? this.props.gameData(this.state.score) : null
   }
 

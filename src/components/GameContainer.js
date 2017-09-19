@@ -26,6 +26,7 @@ class GameContainer extends React.Component{
 
   checkAnswer = (event) => {
     let answer = event.target.textContent === this.props.data.correct_answer ? true : false
+    // eslint-disable-next-line
     answer === true ? this.props.handleScore() : null
     this.setState({
       nextQuestion: true,

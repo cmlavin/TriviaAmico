@@ -11,9 +11,9 @@ class ScoreData {
     .then(resp => {return resp.json()})
   }
 
-  static getScore(user) {
-
-  }
+  // static getScore(user) {
+  //
+  // }
 }
 
 export default ScoreData

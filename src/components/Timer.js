@@ -1,17 +1,15 @@
 import React from 'react'
 
 class Timer extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.timer = 0
     this.state = {
       time: {},
-      timeAlloted: (10*props.numberOfQuestions),
+      timeAlloted: '',
       timerRunning: false
     }
   }
-
-  //what if 7 seconds per question
 
   componentDidMount() {
     let timeLeft = this.displayTime(this.state.timeAlloted)
@@ -19,6 +17,22 @@ class Timer extends React.Component {
       time: timeLeft,
       timerRunning: true
     }, this.startTimer())
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      timeAlloted: (10 * nextProps.numberOfQuestions)
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if (this.state.timeAlloted === 0) {
+      this.setState({timerRunning:false}, this.props.timerAtZero())
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
   }
 
   displayTime = (seconds) => {
@@ -37,14 +51,6 @@ class Timer extends React.Component {
     }
   }
 
-  stopTimer = () => {
-    this.state.timerRunning === true ? this.setState({ timerRunning: false }) : null
-  }
-
-  resetTimer = () => {
-    this.setState({timeAlloted: 30})
-  }
-
   handleCounter = () => {
     let counter = this.state.timeAlloted - 1
     this.setState({
@@ -56,20 +62,12 @@ class Timer extends React.Component {
     }
    }
 
-  componentWillUnmount() {
-    clearInterval(this.timer)
-  }
-
-  componentDidUpdate(prevProps, prevState){
-    if (this.state.timeAlloted === 0) {
-      this.setState({timerRunning:false}, this.props.timerAtZero())
-    }
-  }
-
   render() {
     return(
       <div id="timerContainer">
-        <h3 id="timerText">Time left: {this.state.time.min} min {this.state.time.sec} sec</h3>
+        <h3 id="timerText">
+          Time left: {this.state.time.min} min {this.state.time.sec} sec
+        </h3>
       </div>
     )
   }
