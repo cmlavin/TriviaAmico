@@ -30,7 +30,7 @@ class App extends React.Component {
     if (!!localStorage.jwt) {
       this.setState({
         isLoggedIn: true,
-        jwt:localStorage.jwt
+        jwt: localStorage.jwt
       })
       this.currentUser()
     }
@@ -62,8 +62,8 @@ class App extends React.Component {
     Auth.logout()
     this.setState({
       isLoggedIn: false,
-      user:{},
-      jwt: ""
+      user: {},
+      jwt: ''
     })
   }
 
@@ -115,13 +115,12 @@ class App extends React.Component {
   }
 
   gameData = (score) => {
-    console.log("Inside gameData")
     let {number, category, difficulty} = this.state
     let scoreHash = {
       score: {
         user_id: this.state.user.id,
         score: score,
-        game_attributes:{
+        game_attributes: {
           category: category,
           difficulty: difficulty,
           num_questions: number
@@ -129,7 +128,12 @@ class App extends React.Component {
       }
     }
     ScoreData.sendScore(scoreHash)
+    ScoreData.getAllScores()
 
+    // .then(ScoreData.getAllScores())
+    // .then(data => this.setState({
+    //   scores: data
+    // }, () => console.log(this.state)))
   }
   //.then(data => this.setState({
 //    scores: data
@@ -137,7 +141,8 @@ class App extends React.Component {
 
   renderHomepage = () => {
     return <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}
-              loggedIn={this.state.isLoggedIn} logout={this.logout}/>
+              loggedIn={this.state.isLoggedIn} logout={this.logout}
+              scores={this.state.scores}/>
   }
 
   renderGame = () => {
