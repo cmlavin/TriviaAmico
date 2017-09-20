@@ -18,64 +18,19 @@ class App extends React.Component {
       difficulty: '',
       type: '',
       data: [],
-      jwt: '',
       isLoggedIn: false,
       user: {},
-      scores: [],
-      games: {}
+      scores: []
     }
   }
 
   componentDidMount(){
     if (!!localStorage.jwt) {
       this.setState({
-        isLoggedIn: true,
-        jwt: localStorage.jwt
+        isLoggedIn: true
       })
       this.currentUser()
     }
-  }
-
-  login = (event) => {
-    let inputUsername = event.target.elements.username.value
-    let inputPassword = event.target.elements.password.value
-    if (inputUsername !== '' && inputPassword !== '') {
-      let formData = new FormData()
-      formData.append('username', inputUsername)
-      formData.append('password', inputPassword)
-      Auth.login(formData)
-      .then(data => {
-        console.log(data)
-        if (!data.error) {
-          this.setState({
-            jwt: data.jwt,
-            isLoggedIn: true,
-            user: data.user
-          })
-          localStorage.setItem('jwt', data.jwt)
-        }
-      })
-    }
-  }
-
-  logout = () => {
-    Auth.logout()
-    this.setState({
-      isLoggedIn: false,
-      user: {},
-      jwt: ''
-    })
-  }
-
-  currentUser() {
-    Auth.currentUser()
-    .then(data => {
-      console.log(data)
-      this.setState({
-        user: data
-      })
-      console.log(this.state.user)
-    })
   }
 
   signup = (event) => {
@@ -97,6 +52,46 @@ class App extends React.Component {
         }
       })
     }
+  }
+
+  login = (event) => {
+    let inputUsername = event.target.elements.username.value
+    let inputPassword = event.target.elements.password.value
+    if (inputUsername !== '' && inputPassword !== '') {
+      let formData = new FormData()
+      formData.append('username', inputUsername)
+      formData.append('password', inputPassword)
+      Auth.login(formData)
+      .then(data => {
+        console.log(data)
+        if (!data.error) {
+          this.setState({
+            isLoggedIn: true,
+            user: data.user
+          })
+          localStorage.setItem('jwt', data.jwt)
+        }
+      })
+    }
+  }
+
+  logout = () => {
+    Auth.logout()
+    this.setState({
+      isLoggedIn: false,
+      user: {}
+    })
+  }
+
+  currentUser() {
+    Auth.currentUser()
+    .then(data => {
+      console.log(data)
+      this.setState({
+        user: data
+      })
+      console.log(this.state.user)
+    })
   }
 
   handleSelection = (event, data) => {

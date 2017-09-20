@@ -1,6 +1,8 @@
-class Auth {
+const path = 'http://localhost:3000/api/v1'
+export default class Auth {
+
   static signup(signupParams) {
-    return fetch('http://localhost:3000/api/v1/signup', {
+    return fetch(`${path}/signup`, {
       method: 'POST',
       body: signupParams
     })
@@ -8,7 +10,7 @@ class Auth {
   }
 
   static login(loginParams) {
-    return fetch('http://localhost:3000/api/v1/login', {
+    return fetch(`${path}/login`, {
       method: 'POST',
       body: loginParams
     })
@@ -16,11 +18,11 @@ class Auth {
   }
 
   static currentUser() {
-    return fetch('http://localhost:3000/api/v1/me', {
+    return fetch(`${path}/me`, {
       method: 'GET',
-      headers: {'content-type': 'application/json',
-                  'accept': 'application/json',
-                  'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
+      headers: {'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
     })
     .then(resp => {return resp.json()})
   }
@@ -28,6 +30,5 @@ class Auth {
   static logout() {
     localStorage.removeItem('jwt')
   }
-}
 
-export default Auth
+}
