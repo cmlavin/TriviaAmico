@@ -124,12 +124,14 @@ class App extends React.Component {
     }
     ScoreData.sendScore(scoreHash)
     // eslint-disable-next-line
-    .then(data => {data === 200 ? this.allScores() : null})
+    .then(data => {data === 200 ? this.getAllScores() : null})
   }
 
-  allScores = () => {
-    ScoreData.getAllScores()
-    .then(data => {debugger})
+  getAllScores = () => {
+    ScoreData.fetchAllScores()
+    .then(data => this.setState({
+      scores: data
+    }))
   }
 
   renderHomepage = () => {

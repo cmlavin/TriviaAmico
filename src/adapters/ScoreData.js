@@ -20,15 +20,15 @@ export default class ScoreData {
     .then(resp => {return resp.status})
   }
 
-  static getScore(user) {
-    return fetch(path, {
-      method: 'GET',
-      headers: headers()
-    })
-    .then(resp => {return resp.json()})
-  }
+  // static getScore(user) {
+  //   return fetch(path, {
+  //     method: 'GET',
+  //     headers: headers()
+  //   })
+  //   .then(resp => {return resp.json()})
+  // }
 
-  static getAllScores() {
+  static fetchAllScores() {
     return fetch(path, {
       method: 'GET',
       headers: headers()
