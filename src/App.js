@@ -123,16 +123,14 @@ class App extends React.Component {
       }
     }
     ScoreData.sendScore(scoreHash)
-    ScoreData.getAllScores()
-
-    // .then(ScoreData.getAllScores())
-    // .then(data => this.setState({
-    //   scores: data
-    // }, () => console.log(this.state)))
+    // eslint-disable-next-line
+    .then(data => {data === 200 ? this.allScores() : null})
   }
-  //.then(data => this.setState({
-//    scores: data
-//  }, () => console.log(this.state.scores)))
+
+  allScores = () => {
+    ScoreData.getAllScores()
+    .then(data => {debugger})
+  }
 
   renderHomepage = () => {
     return <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}

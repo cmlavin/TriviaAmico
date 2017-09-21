@@ -1,5 +1,14 @@
 const path = 'http://localhost:3000/api/v1/scores'
 
+let headers = () => {
+  const token = localStorage.getItem('jwt')
+  return {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': `Bearer ${token}`
+  }
+}
+
 export default class ScoreData {
 
   static sendScore(score) {
@@ -8,7 +17,7 @@ export default class ScoreData {
       headers: headers(),
       body: JSON.stringify(score)
     })
-    .then(resp => {return resp.json()})
+    .then(resp => {return resp.status})
   }
 
   static getScore(user) {
@@ -24,16 +33,7 @@ export default class ScoreData {
       method: 'GET',
       headers: headers()
     })
-    .then(resp => {debugger})
+    .then(resp => {return resp.json()})
   }
 
-  let headers = () => {
-    const token = localStorage.getItem('jwt')
-    return {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${token}`
-    }
-  }
-  
 }
