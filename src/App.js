@@ -7,6 +7,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Auth from './services/Auth'
 import ScoreData from './adapters/ScoreData'
+import UserData from './adapters/UserData'
 import './App.css'
 
 class App extends React.Component {
@@ -20,11 +21,13 @@ class App extends React.Component {
       data: [],
       isLoggedIn: false,
       user: {},
-      scores: []
+      scores: [],
+      users: []
     }
   }
 
   componentDidMount(){
+    this.getAllUsers()
     this.getAllScores()
     if (!!localStorage.jwt) {
       this.setState({
@@ -134,11 +137,19 @@ class App extends React.Component {
       scores: data
     }))
   }
+  //data is of the form [{}, {}, {}] with {id: #, score: #, game_id: #, user_id: #}
+
+  getAllUsers = () => {
+    UserData.fetchAllUsers()
+    .then(data => this.setState({
+      users: data
+    }))
+  }
 
   renderHomepage = () => {
     return <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}
               loggedIn={this.state.isLoggedIn} logout={this.logout}
-              scores={this.state.scores}/>
+              scores={this.state.scores} users={this.state.users}/>
   }
 
   renderGame = () => {

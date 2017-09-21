@@ -14,7 +14,7 @@ const Homepage = (props) => {
         Trivia Amico
       </div>
       {props.loggedIn ? <StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection} /> : <LoginContainer />}
-      <Leaderboard scores={props.scores} />
+      <Leaderboard scores={props.scores} users={props.users} />
     </div>
   )
 }

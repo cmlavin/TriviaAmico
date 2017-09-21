@@ -2,7 +2,8 @@ import React from 'react'
 
 const HighScore = (props) => {
   return(
-    <div>
+    <div id="highScoreText">
+      {props.username}
       {props.score}
     </div>
   )

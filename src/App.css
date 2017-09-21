@@ -95,6 +95,11 @@ body {
   width:80%;
 }
 
+#highScoreText {
+  font-family: 'Kurale';
+  font-size: 30px;
+}
+
 #navbarButtonContainer {
   position: absolute;
   top: 2px;
