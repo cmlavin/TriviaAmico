@@ -1,5 +1,6 @@
 import React from 'react'
 import StartGame from './StartGame'
+import Leaderboard from './Leaderboard'
 import LoginContainer from './LoginContainer'
 import Navbar from './Navbar'
 import { Icon } from 'semantic-ui-react'
@@ -13,6 +14,7 @@ const Homepage = (props) => {
         Trivia Amico
       </div>
       {props.loggedIn ? <StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection} /> : <LoginContainer />}
+      <Leaderboard scores={props.scores} />
     </div>
   )
 }

@@ -1,31 +1,17 @@
 import React from 'react'
+import HighScore from './HighScore'
 import { Grid } from 'semantic-ui-react'
 
-class Leaderboard extends React.Component {
-  componentWillReceiveProps(nextProps) {
-    debugger
-  }
+const Leaderboard = (props) => {
+  let allScores = props.scores.map(obj => obj.score)
+  let sortedScores = allScores.sort(function(a, b) {return b - a}).slice(0, 10)
+  //what if highest is 800 and have 50 800 scores?
 
-  render() {
-    return(
-      <div>
-      </div>
-    )
-  }
+  return(
+    <div>
+      {sortedScores.map(score => <HighScore score={score} />)}
+    </div>
+  )
 }
 
-// const Leaderboard = () => {
-//   return(
-//     <div>
-//       <Grid id="leaderboardGrid">
-//         <Grid.Column>
-//         </Grid.Column>
-//       </Grid>
-//     </div>
-//   )
-// }
-
 export default Leaderboard
-
-//will need componentWillReceiveProps
-//props will be all the scores from App.js

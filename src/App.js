@@ -25,6 +25,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
+    this.getAllScores()
     if (!!localStorage.jwt) {
       this.setState({
         isLoggedIn: true
