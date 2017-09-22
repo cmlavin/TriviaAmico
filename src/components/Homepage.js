@@ -5,18 +5,36 @@ import LoginContainer from './LoginContainer'
 import Navbar from './Navbar'
 import { Icon } from 'semantic-ui-react'
 
-const Homepage = (props) => {
-  return(
-    <div>
-      {props.loggedIn ? <Navbar logout={props.logout}/> : null}
+class Homepage extends React.Component {
+
+  gameTitle = () => {
+    return(
       <div id="homepageTitle" className="gameTitle">
         <Icon name='puzzle' flipped='horizontally' size="small" />
         Trivia Amico
       </div>
-      {props.loggedIn ? <StartGame handleSubmit={props.handleSubmit} handleSelection={props.handleSelection} /> : <LoginContainer />}
-      <Leaderboard scores={props.scores} users={props.users} />
-    </div>
-  )
+    )
+  }
+
+  homepageConditional = () => {
+    return this.props.loggedIn ?
+      (<div>
+      <Navbar logout={this.props.logout}/>
+      {this.gameTitle()}
+      <StartGame handleSubmit={this.props.handleSubmit} handleSelection={this.props.handleSelection} />
+      <Leaderboard scores={this.props.scores} users={this.props.users} />
+      </div>) :
+      (<div>
+       {this.gameTitle()}
+      <LoginContainer />
+      </div>)
+  }
+
+  render() {
+    return(
+      this.homepageConditional()
+    )
+  }
 }
 
 export default Homepage

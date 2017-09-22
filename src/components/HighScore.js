@@ -1,11 +1,12 @@
 import React from 'react'
+import { Table } from 'semantic-ui-react'
 
 const HighScore = (props) => {
   return(
-    <div id="highScoreText">
-      {props.username}
-      {props.score}
-    </div>
+      <Table.Row>
+        <Table.Cell textAlign="center">{props.username}</Table.Cell>
+        <Table.Cell textAlign="center">{props.score}</Table.Cell>
+      </Table.Row>
   )
 }
 

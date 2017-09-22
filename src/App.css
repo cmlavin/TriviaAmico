@@ -43,6 +43,13 @@
   margin-top: 100px;
 }
 
+.ui.table {
+  width: auto;
+  text-align: center;
+  font-family: 'Kurale';
+  font-size: 30px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -93,11 +100,6 @@ body {
 
 .answer-btn {
   width:80%;
-}
-
-#highScoreText {
-  font-family: 'Kurale';
-  font-size: 30px;
 }
 
 #navbarButtonContainer {
