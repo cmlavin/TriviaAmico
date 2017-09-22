@@ -137,8 +137,7 @@ class App extends React.Component {
       scores: data
     }))
   }
-  //data is of the form [{}, {}, {}] with {id: #, score: #, game_id: #, user_id: #}
-
+  
   getAllUsers = () => {
     UserData.fetchAllUsers()
     .then(data => this.setState({
