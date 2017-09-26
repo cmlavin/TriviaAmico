@@ -18,7 +18,7 @@ class Homepage extends React.Component {
 
   homepageConditional = () => {
     return this.props.loggedIn ?
-      (<div>
+      (<div id="loggedInHomepage">
       <Navbar logout={this.props.logout}/>
       {this.gameTitle()}
       <StartGame handleSubmit={this.props.handleSubmit} handleSelection={this.props.handleSelection} />

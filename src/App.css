@@ -40,7 +40,15 @@
 }
 
 .ui.form {
-  margin-top: 100px;
+  margin-top: 8%;
+  margin-left: 12%;
+  float: left;
+}
+
+#leaderboardDiv {
+  margin-top: 2%;
+  margin-right: 12%;
+  float: right;
 }
 
 .ui.table {
@@ -48,6 +56,23 @@
   text-align: center;
   font-family: 'Kurale';
   font-size: 30px;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  border-radius: 25px;
+}
+
+.ui.table thead th {
+  background: none;
+}
+
+#leaderboardHeader {
+  text-align: center;
+}
+
+#leaderboardHeaderText {
+  font-family: 'Kurale';
+  font-size: 50px;
 }
 
 @keyframes App-logo-spin {
