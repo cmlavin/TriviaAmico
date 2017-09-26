@@ -1,6 +1,6 @@
 import React from 'react'
 import HighScore from './HighScore'
-import { Header, Icon, Table } from 'semantic-ui-react'
+import { Icon, Table } from 'semantic-ui-react'
 
 class Leaderboard extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -10,16 +10,14 @@ class Leaderboard extends React.Component {
   sortedScores = () => {
     return this.props.scores.sort(function(a, b) {return b.score - a.score}).slice(0, 10)
   }
-//to fix icon not changing size, look at gameTitle in Homepage
+
   render() {
     return(
       <div id="leaderboardDiv">
-        <Header id="leaderboardHeader">
+        <div id="leaderboardHeader">
           <Icon name='trophy' />
-          <Header.Content id="leaderboardHeaderText">
             Leaderboard
-          </Header.Content>
-        </Header>
+        </div>
 
         <Table>
           <Table.Header>
