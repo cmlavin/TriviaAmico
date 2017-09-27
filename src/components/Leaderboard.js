@@ -16,7 +16,7 @@ class Leaderboard extends React.Component {
       return sorted.map((obj, i) => <HighScore key={i} rank={i+1} username={obj.username} score={obj.score} />)
     }
   }
-
+//<Table.HeaderCell width={6}>Category</Table.HeaderCell>
   render() {
     return(
       <div id="leaderboardDiv">
@@ -28,9 +28,10 @@ class Leaderboard extends React.Component {
         <Table>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell width={4}>Rank</Table.HeaderCell>
-              <Table.HeaderCell width={6}>Username</Table.HeaderCell>
-              <Table.HeaderCell width={6}>High Score</Table.HeaderCell>
+              <Table.HeaderCell>Rank</Table.HeaderCell>
+              <Table.HeaderCell>Username</Table.HeaderCell>
+              <Table.HeaderCell>Category</Table.HeaderCell>
+              <Table.HeaderCell>High Score</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
