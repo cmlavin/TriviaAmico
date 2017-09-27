@@ -6,7 +6,7 @@ const HighScore = (props) => {
       <Table.Row>
         <Table.Cell textAlign="center">{props.rank}</Table.Cell>
         <Table.Cell textAlign="center">{props.username}</Table.Cell>
-        <Table.Cell textAlign="center"> </Table.Cell>
+        <Table.Cell textAlign="center">{props.category}</Table.Cell>
         <Table.Cell textAlign="center">{props.score}</Table.Cell>
       </Table.Row>
   )
