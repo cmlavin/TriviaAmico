@@ -2,13 +2,19 @@ import React from 'react'
 import HighScore from './HighScore'
 import { Icon, Table } from 'semantic-ui-react'
 
+//add in a way to associate gameInfo with a score and user
 class Leaderboard extends React.Component {
   componentWillReceiveProps(nextProps) {
-    nextProps.scores.map(score => score.username = (nextProps.users.filter(user => user.id === score.user_id)[0].username))
+    if(nextProps.scores.length !== 0 && nextProps.users.length !== 0) {
+      nextProps.scores.map(score => score.username = (nextProps.users.filter(user => user.id === score.user_id)[0].username))
+    }
   }
 
   sortedScores = () => {
-    return this.props.scores.sort(function(a, b) {return b.score - a.score}).slice(0, 10)
+    if(this.props.users.length !== 0) {
+      let sorted = this.props.scores.sort(function(a, b) {return b.score - a.score}).slice(0, 10)
+      return sorted.map((obj, i) => <HighScore key={i} rank={i+1} username={obj.username} score={obj.score} />)
+    }
   }
 
   render() {
@@ -28,7 +34,7 @@ class Leaderboard extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.sortedScores().map((obj, i) => <HighScore key={i} rank={i+1} username={obj.username} score={obj.score} />)}
+            {this.sortedScores()}
           </Table.Body>
         </Table>
       </div>

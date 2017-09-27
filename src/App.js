@@ -7,6 +7,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Auth from './services/Auth'
 import ScoreData from './adapters/ScoreData'
+import GameData from './adapters/GameData'
 import UserData from './adapters/UserData'
 import './App.css'
 
@@ -22,6 +23,7 @@ class App extends React.Component {
       isLoggedIn: false,
       user: {},
       scores: [],
+      gameInfo: [],
       users: []
     }
   }
@@ -135,9 +137,16 @@ class App extends React.Component {
     ScoreData.fetchAllScores()
     .then(data => this.setState({
       scores: data
+    }, this.getAllGameData()))
+  }
+
+  getAllGameData = () => {
+    GameData.fetchAllGames()
+    .then(data => this.setState({
+      gameInfo: data
     }))
   }
-  
+
   getAllUsers = () => {
     UserData.fetchAllUsers()
     .then(data => this.setState({
@@ -147,13 +156,13 @@ class App extends React.Component {
 
   renderHomepage = () => {
     return <Homepage handleSubmit={this.handleSubmit} handleSelection={this.handleSelection}
-              loggedIn={this.state.isLoggedIn} logout={this.logout}
-              scores={this.state.scores} users={this.state.users}/>
+              loggedIn={this.state.isLoggedIn} logout={this.logout} scores={this.state.scores}
+              users={this.state.users} gameInfo={this.state.gameInfo}/>
   }
 
   renderGame = () => {
     return (this.state.isLoggedIn === true ?
-              <Game data={this.state.data} difficulty={this.state.difficulty} gameData={this.gameData }/> : <Redirect to="/"/>)
+              <Game data={this.state.data} difficulty={this.state.difficulty} gameData={this.gameData}/> : <Redirect to="/"/>)
   }
 
   renderSignup = () => {

@@ -53,8 +53,12 @@ class Game extends React.Component {
       </div>
     )
   }
-
-  gameStart = () =>{
+//this.props.data is not always equal to what was selected in app
+//need to wait for an update before sending data to <Timer />
+//update component lifecycle method
+//component mounts once and isn't being updated
+//shouldocmponentupdate nextProps !== this.props
+  playGame = () =>{
     return(
       <div>
         <GameContainer data={this.props.data[this.state.index]}
@@ -71,7 +75,7 @@ class Game extends React.Component {
   gameConditional = () =>{
     return this.props.data.length === this.state.index ?
       this.gameOver() :
-      this.gameStart()
+      this.playGame()
   }
 
   render() {
