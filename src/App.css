@@ -56,7 +56,7 @@
 }
 
 .ui.table thead th {
-  background: none;
+  background-color: #A9C4DF;
 }
 
 #leaderboardHeader {
@@ -88,6 +88,16 @@ body {
   margin-top: 4%;
   float: left;
   width:50%;
+}
+
+.ui.table thead tr>th:first-child {
+  border-left: none;
+  border-top-left-radius: 22px!important;
+}
+
+.ui.table thead tr>th:last-child {
+  border-left: none;
+  border-top-right-radius: 22px!important;
 }
 
 .ui.form .inline.field>:first-child, .ui.form .inline.fields .field>:first-child {
