@@ -1,12 +1,14 @@
 import React from 'react'
 import HighScore from './HighScore'
+import categories from '../options/categories'
 import { Icon, Table } from 'semantic-ui-react'
 
 class Leaderboard extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.scores.length !== 0 && nextProps.users.length !== 0 && nextProps.gameInfo.length !== 0) {
-      nextProps.scores.map(score => score.username = (nextProps.users.filter(user => user.id === score.user_id)[0].username))
-      nextProps.scores.map(score => score.category = (nextProps.gameInfo.filter(game => game.id === score.game_id)[0].category))
+      nextProps.scores.map(scoreObj => scoreObj.username = (nextProps.users.filter(user => user.id === scoreObj.user_id)[0].username))
+      nextProps.scores.map(scoreObj => scoreObj.category = (nextProps.gameInfo.filter(game => game.id === scoreObj.game_id)[0].category))
+      nextProps.scores.map(scoreObj => scoreObj.category = (categories.filter(catObj => catObj.value === scoreObj.category)[0].text))
     }
   }
 
