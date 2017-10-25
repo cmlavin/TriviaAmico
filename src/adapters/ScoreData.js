@@ -1,4 +1,4 @@
-const path = 'http://localhost:3000/api/v1/scores'
+const path = 'https://trivia-amico-api.herokuapp.com/api/v1/scores'
 
 let headers = () => {
   const token = localStorage.getItem('jwt')
