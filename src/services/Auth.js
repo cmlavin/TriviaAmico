@@ -2,7 +2,7 @@ const path = 'https://trivia-amico-api.herokuapp.com/api/v1'
 export default class Auth {
 
   static signup(signupParams) {
-    return fetch(`${path}/signup`, {
+    return fetch('https://trivia-amico-api.herokuapp.com/api/v1/signup', {
       method: 'POST',
       body: signupParams
     })
