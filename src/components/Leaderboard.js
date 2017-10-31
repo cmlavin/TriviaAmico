@@ -4,6 +4,7 @@ import categories from '../options/categories'
 import { Icon, Table } from 'semantic-ui-react'
 
 class Leaderboard extends React.Component {
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.scores.length !== 0 && nextProps.users.length !== 0 && nextProps.gameInfo.length !== 0) {
       nextProps.scores.map(scoreObj => scoreObj.username = (nextProps.users.filter(user => user.id === scoreObj.user_id)[0].username))
@@ -13,7 +14,7 @@ class Leaderboard extends React.Component {
   }
 
   sortedScores = () => {
-    if(this.props.users.length !== 0 && this.props.gameInfo.length !== 0) {
+    if(this.props.users.length > 0 && this.props.gameInfo.length > 0) {
       let sorted = this.props.scores.sort(function(a, b) {return b.score - a.score}).slice(0, 10)
       return sorted.map((obj, i) => <HighScore key={i} rank={i+1} username={obj.username} score={obj.score} category={obj.category}/>)
     }
@@ -37,7 +38,7 @@ class Leaderboard extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.sortedScores() || "No Scores yet!!!"}
+            {this.sortedScores()}
           </Table.Body>
         </Table>
       </div>

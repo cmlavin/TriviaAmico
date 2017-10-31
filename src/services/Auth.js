@@ -10,7 +10,7 @@ export default class Auth {
   }
 
   static login(loginParams) {
-    return fetch(`https://trivia-amico-api.herokuapp.com/api/v1/login`, {
+    return fetch(`${path}/login`, {
       method: 'POST',
       body: loginParams
     })
