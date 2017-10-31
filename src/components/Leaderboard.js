@@ -37,7 +37,7 @@ class Leaderboard extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.sortedScores()}
+            {this.sortedScores() || "No Scores yet!!!"}
           </Table.Body>
         </Table>
       </div>
