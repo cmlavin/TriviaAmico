@@ -29,12 +29,12 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.getAllUsers()
-    this.getAllScores()
     if (!!localStorage.jwt) {
       this.setState({
         isLoggedIn: true
       })
+      this.getAllUsers()
+      this.getAllScores()
       this.currentUser()
     }
   }
