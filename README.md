@@ -10,7 +10,7 @@
 
 ## Introduction
 
-Trivia Amico is a single player trivia game.  
+Trivia Amico is a single player trivia game.  The game can be played at http://triviaamico.herokuapp.com/.
 
 ### `Gameplay`
 
