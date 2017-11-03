@@ -92,11 +92,9 @@ class App extends React.Component {
   currentUser() {
     Auth.currentUser()
     .then(data => {
-      console.log(data)
       this.setState({
         user: data
       })
-      console.log(this.state.user)
     })
   }
 
