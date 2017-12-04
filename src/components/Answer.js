@@ -20,6 +20,7 @@ class Answer extends React.Component {
   }
 
   render() {
+    debugger
     return(
       <div className="answer">
         <Button className="answer-btn"

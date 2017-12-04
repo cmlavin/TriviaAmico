@@ -9,7 +9,7 @@ class Leaderboard extends React.Component {
     if(nextProps.scores.length !== 0 && nextProps.users.length !== 0 && nextProps.gameInfo.length !== 0) {
       nextProps.scores.map(scoreObj => scoreObj.username = (nextProps.users.filter(user => user.id === scoreObj.user_id)[0].username))
       nextProps.scores.map(scoreObj => scoreObj.category = (nextProps.gameInfo.filter(game => game.id === scoreObj.game_id)[0].category))
-      nextProps.scores.map(scoreObj => scoreObj.category = (categories.filter(catObj => catObj.value === scoreObj.category)[0].text))
+      //nextProps.scores.map(scoreObj => scoreObj.category = (categories.filter(catObj => catObj.value === scoreObj.category)[0].text))
     }
   }
 
