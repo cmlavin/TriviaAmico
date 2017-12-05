@@ -22,7 +22,7 @@ class Homepage extends React.Component {
       <Navbar logout={this.props.logout}/>
       {this.gameTitle()}
       <StartGame handleSubmit={this.props.handleSubmit} handleSelection={this.props.handleSelection} />
-
+      <Leaderboard scores={this.props.scores} users={this.props.users} gameInfo={this.props.gameInfo}/>
       </div>) :
       (<div>
        {this.gameTitle()}
