@@ -4,8 +4,7 @@
 [Trivia Amico Github Front-end](https://github.com/cmlavin/TriviaAmico)<br>
 [Trivia Amico Github Back-end](https://github.com/cmlavin/TriviaAmicoAPI)<br>
 
-Trivia Amico is a full stack web application trivia game.  
-The server is built using Ruby on Rails with a PostgreSQL database to persist user data, game data, and scores.  The front-end is built with React and styled using Semantic UI React and custom CSS.
+Trivia Amico is a full stack web application trivia game. The server is built using Ruby on Rails with a PostgreSQL database to persist user data, game data, and scores.  The front-end is built with React and styled using Semantic UI React and custom CSS.
 
 ## Features
 
@@ -16,8 +15,6 @@ The server is built using Ruby on Rails with a PostgreSQL database to persist us
   * Checks for high score updates after every game
 * Fetch API used for AJAX functionality to allow communication between the front-end and back-end
 * Trivia questions and answers are requested from an external API
-* Timer
-* Mixture of smart and presentational components
 
 ## Gameplay
 
