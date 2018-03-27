@@ -10,11 +10,12 @@ Trivia Amico is a full stack web application trivia game. The server is built us
 
 * Account creation and user authentication
   * Passwords are encrypted using the bcrypt gem
-  * JWT is used to keep users logged in
-* Leaderboard keeps track of the top 10 high scores
-  * Checks for high score updates after every game
+  * JSON Web Tokens (JWT) are used to keep users logged in
+* Multi-page web application using React Router
 * Fetch API used for AJAX functionality to allow communication between the front-end and back-end
 * Trivia questions and answers are requested from an external API
+* Leaderboard keeps track of the top 10 high scores
+  * Checks for high score updates after every game
 
 ## Gameplay
 
